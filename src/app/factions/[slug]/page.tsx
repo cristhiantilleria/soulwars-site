@@ -390,7 +390,7 @@ export default async function FactionPage({ params }: { params: Promise<{ slug: 
         {/* ── Squads ─────────────────────────────────────────────────────────── */}
         {faction.squads && faction.squads.length > 0 && (
           <section className="mb-20">
-            <SectionHeader eyebrow="Organizations" title="Squads & Divisions" />
+            <SectionHeader eyebrow="Organizations" title={faction.squadsLabel ?? "Squads & Divisions"} />
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {faction.squads.map((squad) => (
                 <SquadCard key={squad.name} squad={squad} factionColor={faction.color} />

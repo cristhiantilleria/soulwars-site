@@ -13,6 +13,7 @@ export interface FactionDetail {
   tagline: string;
   sections: { title: string; items: { label: string; value?: string }[] }[];
   squads?: Squad[];
+  squadsLabel?: string;
 }
 
 export const FACTIONS: FactionDetail[] = [
@@ -200,23 +201,164 @@ export const FACTIONS: FactionDetail[] = [
         ],
       },
       {
-        title: "Arrancar / Resurreccion",
+        title: "Hollow Perks — Weak",
         items: [
-          { label: "Talk to Aizen after Menos Grande+" },
+          { label: "+3% Crit Chance" },
+          { label: "+7.5% Crit Damage" },
+          { label: "+5% Melee Damage" },
+          { label: "-2% Damage Taken" },
+        ],
+      },
+      {
+        title: "Hollow Perks — Medium",
+        items: [
+          { label: "+3% Crit Chance" },
+          { label: "+7.5% Crit Damage" },
+          { label: "+5% Melee Damage" },
+          { label: "+5% Skill Damage" },
+          { label: "-2% Damage Taken" },
+        ],
+      },
+      {
+        title: "Hollow Perks — Strong",
+        items: [
+          { label: "+5% Crit Chance" },
+          { label: "+10% Crit Damage" },
+          { label: "+7% Melee Damage" },
+          { label: "+7% Skill Damage" },
+          { label: "-3% Damage Taken" },
+          { label: "+5% Both Melee & Skill Damage" },
+        ],
+      },
+      {
+        title: "Hollow Perks — Menos Grande",
+        items: [
+          { label: "+50% Cero Damage" },
+          { label: "Cero slows targets for 1.5s" },
+          { label: "0 Cero charge time + 100% Cero projectile speed" },
+        ],
+      },
+      {
+        title: "Hollow Perks — Vasto Lorde",
+        items: [
+          { label: "-7% Damage Taken, but +25% more back-hit damage against you" },
+          { label: "+7% Damage Dealt, but +7% more Damage Taken" },
+        ],
+      },
+      {
+        title: "Arrancar Unlock",
+        items: [
+          { label: "Talk to Aizen in Las Noches after Menos Grande+" },
           { label: "Resurreccion requires Level 40" },
           { label: "Train Zanjutsu as Vasto — much faster" },
-          { value: "Stark", label: "+220% rei" },
-          { value: "Charlotte", label: "+180% atk" },
+        ],
+      },
+      {
+        title: "Arrancar Perks",
+        items: [
+          { value: "Greater Power", label: "+15% base stats" },
+          { value: "Greater Regeneration", label: "+50% Regeneration" },
+        ],
+      },
+      {
+        title: "Resurrecciones — Attack",
+        items: [
+          { value: "Grimmjow", label: "Ress: +96% atk, +24% def/dex · Hogyoku: +150% atk, +25% def, +40% dex" },
+          { value: "Nel", label: "Ress: +96% atk, +24% def/dex" },
+          { value: "Nnoitra", label: "Ress: +72% def, +24% dex · Hogyoku: +100% def/dex" },
+          { value: "Yammy", label: "Ress: +96% atk, +60% def, +40% hp · Enraged: +144% atk · Hogyoku: +120% def, +40% hp" },
+          { value: "Charlotte", label: "Ress: +180% atk, +120% def" },
+          { value: "Del Toro", label: "Ress: +96% atk, +24% def/dex" },
+        ],
+      },
+      {
+        title: "Resurrecciones — Reiatsu",
+        items: [
+          { value: "Stark (Guns)", label: "Ress: +160% rei, +24% dex · Swords: +220% rei, +72% dex · Hogyoku: +60% def, +150% rei, +100% dex" },
+          { value: "Ulquiorra", label: "Ress: +30% def, +96% rei, +24% dex · Segunda Etapa: +60% def, +120% rei, +48% dex · Hogyoku: +60% def, +150% rei, +100% dex" },
+          { value: "Barragan", label: "Ress: +96% rei · Hogyoku: +150% rei, def boosted by +100% rei" },
+          { value: "Volcanica", label: "Ress: +30% def, +96% rei, +24% dex · Hogyoku: +60% def, +150% rei, +100% dex" },
+          { value: "Harribel", label: "Ress: +96% rei" },
         ],
       },
       {
         title: "Espada Ranks",
         items: [
-          { value: "Leader", label: "Lv120 +13.5% atk/rei" },
-          { value: "Espada 1", label: "Lv115 +12.5% atk/rei" },
-          { value: "Espada 5", label: "Lv95 +8.5% atk/rei" },
-          { value: "Espada 10", label: "Lv65 +3.5% atk/rei" },
+          { value: "Leader", label: "Lv120 · +13.5% atk/rei, +12.5% def" },
+          { value: "Espada 1", label: "Lv115 · +12.5% atk/rei, +11.5% def" },
+          { value: "Espada 2", label: "Lv110 · +11.5% atk/rei, +10.5% def" },
+          { value: "Espada 3", label: "Lv105 · +10.5% atk/rei, +9.5% def" },
+          { value: "Espada 4", label: "Lv100 · +9.5% atk/rei, +8.5% def" },
+          { value: "Espada 5", label: "Lv95 · +8.5% atk/rei, +7.5% def" },
+          { value: "Espada 6", label: "Lv90 · +7.5% atk/rei, +6.5% def" },
+          { value: "Espada 7", label: "Lv80 · +6.5% atk/rei, +5.5% def" },
+          { value: "Espada 8", label: "Lv75 · +5.5% atk/rei, +4.5% def" },
+          { value: "Espada 9", label: "Lv70 · +4.5% atk/rei, +3.5% def" },
+          { value: "Espada 10", label: "Lv65 · +3.5% atk/rei, +2.5% def" },
         ],
+      },
+    ],
+    squadsLabel: "Fraccion Perks",
+    squads: [
+      {
+        name: "Fraccion 1 — Solitude",
+        tag: "farming",
+        perks: ["+10% base stats", "+10% passive experience", "+10% experience"],
+        captainPerk: "+15% base stats, +20% passive experience, +20% experience",
+      },
+      {
+        name: "Fraccion 2 — Age",
+        tag: "utility",
+        perks: ["Enemies within 80px of you cannot Shunpo"],
+        captainPerk: "Force enemies to walk for 0.5s on hit (1.5s CD)",
+      },
+      {
+        name: "Fraccion 3 — Sacrifice",
+        tag: "offense",
+        perks: ["Gain 30% HP and Reiryoku of every enemy killed", "For every 1% HP missing → +0.3% damage"],
+        captainPerk: "For every 1% HP missing → +0.4% damage",
+      },
+      {
+        name: "Fraccion 4 — Emptiness",
+        tag: "defense",
+        perks: ["+30% Parry damage", "+50% Health Regen Rate"],
+        captainPerk: "+50% Parry damage",
+      },
+      {
+        name: "Fraccion 5 — Despair",
+        tag: "defense",
+        perks: ["Toughness reduces ~0.4% dmg/level (vs standard 0.35%)", "+30% Defence stat"],
+        captainPerk: "Toughness reduces ~0.45% dmg/level",
+      },
+      {
+        name: "Fraccion 6 — Destruction",
+        tag: "offense",
+        perks: ["+3 Speed for 4.5s every time you deal damage"],
+        captainPerk: "+12% Attack boost",
+      },
+      {
+        name: "Fraccion 7 — Intoxication",
+        tag: "utility",
+        perks: ["Create 10 Shunpo clones every time you Shunpo"],
+        captainPerk: "Always has +2 Move Speed",
+      },
+      {
+        name: "Fraccion 8 — Madness",
+        tag: "defense",
+        perks: ["+10% damage converted to Lifesteal"],
+        captainPerk: "+15% damage converted to Lifesteal",
+      },
+      {
+        name: "Fraccion 9 — Greed",
+        tag: "farming",
+        perks: ["+20% experience", "+50% passive experience"],
+        captainPerk: "+30% experience, +70% passive experience",
+      },
+      {
+        name: "Fraccion 10 — Rage",
+        tag: "offense",
+        perks: ["Every 1% HP missing → +0.5% more damage"],
+        captainPerk: "Every 1% HP missing → +0.65% more damage",
       },
     ],
   },
