@@ -52,11 +52,49 @@ export const FACTIONS: FactionDetail[] = [
       {
         title: "Noble Families",
         items: [
-          { value: "Kuchiki", label: "+30 Kido Density, +50% Kido Training" },
+          { value: "Kuchiki", label: "+30 Kido Density Cap, +50% Kido Density & Mastery Training, +40 Spirit Mastery Cap" },
           { value: "Komamura", label: "+12% Defence" },
-          { value: "Shihoin", label: "1.15x Back Dmg, -50% Shunko Drain" },
+          { value: "Shihoin", label: "1.15x Back Dmg, -50% Shunko Drain, +400% Shunko Training, +1 Move Speed" },
           { value: "Shiba", label: "-50% All Reiryoku Drains" },
-          { value: "Unohana", label: "+50% Healing, +35% Regen" },
+          { value: "Unohana", label: "+50% Healing, +35% Regen Rate" },
+        ],
+      },
+      {
+        title: "Shunko",
+        items: [
+          { label: "Level 30 · 110 Hakuda Mastery" },
+          { label: "15 Backstep Mastery · 65 Flash Step Mastery" },
+          { label: "40 Kido Mastery" },
+          { label: "Speak with Yoruichi near Squad 2 barracks" },
+          { label: "Squad 2 members learn additional exclusive Shunko skills" },
+        ],
+      },
+      {
+        title: "Squad Picks — Offense",
+        items: [
+          { value: "Squad 2", label: "+20% Crit Damage, 1.15x Back Dmg, +2 Move Speed, +50 Hakuda Cap" },
+          { value: "Squad 3", label: "+10% Damage Dealt (+15% with Captain perk)" },
+          { value: "Squad 9", label: "+100 Zanjutsu Cap, +8% Atk" },
+          { value: "Squad 11", label: "+50% Zanjutsu Training, +50 Zanjutsu Cap, +10% Atk, +8% Def" },
+        ],
+      },
+      {
+        title: "Squad Picks — Utility",
+        items: [
+          { value: "Squad 4", label: "+70% Reiryoku Regen + exclusive AoE Heal skill" },
+          { value: "Squad 5", label: "+15% Leveling EXP, +5% Atk/Rei, +10% Def" },
+          { value: "Squad 6", label: "+10% Rei, +50% Kido Training, +100% Flash Training, +40 Kido Density Cap" },
+          { value: "Squad 12", label: "+80% Passive EXP, +20% Regen Rate, Poison-on-Hit" },
+          { value: "Kido Corps", label: "Half Kido cast time, instant at Captain rank, +40 Kido Density Cap" },
+        ],
+      },
+      {
+        title: "Ranks",
+        items: [
+          { label: "Lieutenant: Level 65" },
+          { label: "Captain: Know Bankai + Level 90 + defeat current Captain" },
+          { label: "Limit Release: Level 70 (Lt/Captain only)" },
+          { label: "Only 1 Captain and 1 Lieutenant per squad" },
         ],
       },
     ],
