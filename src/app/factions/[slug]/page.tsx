@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { FACTIONS } from '@/data/factions';
+import { FACTIONS, type Squad } from '@/data/factions';
 import { getTips } from '@/data/builds';
 import { SHINIGAMI_TREE } from '@/data/skilltrees/shinigami';
 import { HOLLOW_TREE } from '@/data/skilltrees/hollow';
@@ -192,6 +192,47 @@ function MasteryCard({ node }: { node: SkillNode }) {
   );
 }
 
+const SQUAD_TAG_COLORS: Record<Squad["tag"], string> = {
+  offense: "#e74c3c",
+  defense: "#00b4d8",
+  utility: "#d4af37",
+  farming: "#27ae60",
+};
+
+function SquadCard({ squad, factionColor }: { squad: Squad; factionColor: string }) {
+  const tagColor = SQUAD_TAG_COLORS[squad.tag];
+  return (
+    <div
+      className="rounded-lg border p-4 flex flex-col gap-3"
+      style={{ borderColor: `${factionColor}33`, backgroundColor: "#151a27" }}
+    >
+      <div className="flex items-center justify-between gap-2 flex-wrap">
+        <h3 className="font-title text-sm font-bold text-[#e8eaf0]">{squad.name}</h3>
+        <span
+          className="inline-block rounded px-2 py-0.5 font-title text-[0.58rem] tracking-widest uppercase"
+          style={{ color: tagColor, border: `1px solid ${tagColor}44`, backgroundColor: `${tagColor}18` }}
+        >
+          {squad.tag}
+        </span>
+      </div>
+      <ul className="space-y-1">
+        {squad.perks.map((perk, i) => (
+          <li key={i} className="font-body text-sm text-[#7a8aaa] flex gap-2">
+            <span style={{ color: factionColor }} className="shrink-0 mt-0.5">·</span>
+            {perk}
+          </li>
+        ))}
+      </ul>
+      {squad.captainPerk && (
+        <div className="border-t border-white/[0.06] pt-2">
+          <span className="font-title text-[0.6rem] tracking-widest uppercase text-[#d4af37]">Captain: </span>
+          <span className="font-body text-[0.8rem] text-[#7a8aaa]">{squad.captainPerk}</span>
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ─── Page ──────────────────────────────────────────────────────────────────────
 export default async function FactionPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -345,6 +386,18 @@ export default async function FactionPage({ params }: { params: Promise<{ slug: 
             ))}
           </div>
         </section>
+
+        {/* ── Squads ─────────────────────────────────────────────────────────── */}
+        {faction.squads && faction.squads.length > 0 && (
+          <section className="mb-20">
+            <SectionHeader eyebrow="Organizations" title="Squads & Divisions" />
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {faction.squads.map((squad) => (
+                <SquadCard key={squad.name} squad={squad} factionColor={faction.color} />
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* ── Skill Tree ─────────────────────────────────────────────────────── */}
         <section className="mb-20">

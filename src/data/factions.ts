@@ -1,3 +1,10 @@
+export interface Squad {
+  name: string;
+  tag: "offense" | "defense" | "utility" | "farming";
+  perks: string[];
+  captainPerk?: string;
+}
+
 export interface FactionDetail {
   id: string;
   name: string;
@@ -5,6 +12,7 @@ export interface FactionDetail {
   color: string;
   tagline: string;
   sections: { title: string; items: { label: string; value?: string }[] }[];
+  squads?: Squad[];
 }
 
 export const FACTIONS: FactionDetail[] = [
@@ -70,25 +78,6 @@ export const FACTIONS: FactionDetail[] = [
         ],
       },
       {
-        title: "Squad Picks — Offense",
-        items: [
-          { value: "Squad 2", label: "+20% Crit Damage, 1.15x Back Dmg, +2 Move Speed, +50 Hakuda Cap" },
-          { value: "Squad 3", label: "+10% Damage Dealt (+15% with Captain perk)" },
-          { value: "Squad 9", label: "+100 Zanjutsu Cap, +8% Atk" },
-          { value: "Squad 11", label: "+50% Zanjutsu Training, +50 Zanjutsu Cap, +10% Atk, +8% Def" },
-        ],
-      },
-      {
-        title: "Squad Picks — Utility",
-        items: [
-          { value: "Squad 4", label: "+70% Reiryoku Regen + exclusive AoE Heal skill" },
-          { value: "Squad 5", label: "+15% Leveling EXP, +5% Atk/Rei, +10% Def" },
-          { value: "Squad 6", label: "+10% Rei, +50% Kido Training, +100% Flash Training, +40 Kido Density Cap" },
-          { value: "Squad 12", label: "+80% Passive EXP, +20% Regen Rate, Poison-on-Hit" },
-          { value: "Kido Corps", label: "Half Kido cast time, instant at Captain rank, +40 Kido Density Cap" },
-        ],
-      },
-      {
         title: "Ranks",
         items: [
           { label: "Lieutenant: Level 65" },
@@ -96,6 +85,92 @@ export const FACTIONS: FactionDetail[] = [
           { label: "Limit Release: Level 70 (Lt/Captain only)" },
           { label: "Only 1 Captain and 1 Lieutenant per squad" },
         ],
+      },
+    ],
+    squads: [
+      {
+        name: "Squad 1",
+        tag: "defense",
+        perks: ["+20% Atk/Rei", "+24% Def"],
+        captainPerk: "Access to all 3 Sub-Captain Squad Perks (Squads 2, 3, 6, 7, 11)",
+      },
+      {
+        name: "Squad 2",
+        tag: "offense",
+        perks: ["+20% Critical Damage", "1.15× Back Damage", "+50 Hakuda Cap", "+50% Hakuda Training", "+100% Shunpo Training", "-50% Shunpo Drain", "+2 Move Speed"],
+        captainPerk: "Promote / Demote own Lieutenant",
+      },
+      {
+        name: "Squad 3",
+        tag: "offense",
+        perks: ["+10% Damage Dealt"],
+        captainPerk: "+15% Damage Dealt",
+      },
+      {
+        name: "Squad 4",
+        tag: "utility",
+        perks: ["+70% Reiryoku Regen", "Exclusive AoE Heal skill"],
+        captainPerk: "Promote / Demote own Lieutenant",
+      },
+      {
+        name: "Squad 5",
+        tag: "farming",
+        perks: ["+15% Leveling & Passive EXP", "+5% Atk/Rei", "+10% Def", "+25 Hakuda/Zanjutsu/Kido Density Cap", "+15 Toughness Cap"],
+        captainPerk: "Promote / Demote own Lieutenant",
+      },
+      {
+        name: "Squad 6",
+        tag: "utility",
+        perks: ["+50% Kido Training", "+100% Flash Training", "+10% Rei", "+40 Kido Density Cap"],
+        captainPerk: "Promote / Demote own Lieutenant",
+      },
+      {
+        name: "Squad 7",
+        tag: "defense",
+        perks: ["+50% Toughness Training", "+12.5% Def", "+30 Toughness Cap"],
+        captainPerk: "Promote / Demote own Lieutenant",
+      },
+      {
+        name: "Squad 8",
+        tag: "defense",
+        perks: ["+50% Reiryoku Drain", "+40% HP/Reiryoku Regen", "+5% Atk/Rei", "+10% Def"],
+        captainPerk: "Promote / Demote own Lieutenant",
+      },
+      {
+        name: "Squad 9",
+        tag: "offense",
+        perks: ["+100 Zanjutsu Cap", "+8% Atk"],
+        captainPerk: "Promote / Demote own Lieutenant",
+      },
+      {
+        name: "Squad 10",
+        tag: "farming",
+        perks: ["+100% Passive Training", "+35 Zanjutsu Cap"],
+        captainPerk: "Promote / Demote own Lieutenant",
+      },
+      {
+        name: "Squad 11",
+        tag: "offense",
+        perks: ["+50% Zanjutsu Training", "+50 Zanjutsu Cap", "+20 Toughness Cap", "+10% Atk", "+8% Def"],
+        captainPerk: "Promote / Demote own Lieutenant",
+      },
+      {
+        name: "Squad 12",
+        tag: "farming",
+        perks: ["+80% Passive EXP", "+20% Regen Rate", "Poison-on-Hit"],
+        captainPerk: "Promote / Demote own Lieutenant",
+      },
+      {
+        name: "Squad 13",
+        tag: "utility",
+        perks: ["+6% Atk/Rei/Def", "+1% Atk/Rei/Def per Squad 13 member online"],
+        captainPerk: "Promote / Demote own Lieutenant",
+      },
+      {
+        name: "Kido Corps",
+        tag: "utility",
+        perks: ["Kido cast time halved", "+40 Kido Density Cap", "+40% Kido Density Training", "+75% Kido Mastery Training"],
+        captainPerk: "Kido is cast instantly",
       },
     ],
   },
