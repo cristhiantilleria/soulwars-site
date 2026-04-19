@@ -2,35 +2,69 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 const BASE = "https://soulwars-site.vercel.app";
+const TITLE = "Soul Wars — Community Wiki v3.0";
+const DESCRIPTION =
+  "The complete community guide for Bleach: Soul Wars v3.0 — factions, skill trees, builds, perks, mob levels, and new player tips. Post-wipe April 2026.";
 
 export const metadata: Metadata = {
-  title: "Soul Wars — Community Wiki v3.0",
-  description:
-    "The complete community guide for Bleach: Soul Wars v3.0 — factions, skill trees, builds, perks, mob levels, and new player tips. Post-wipe April 2026.",
+  metadataBase: new URL(BASE),
+  title: {
+    default: TITLE,
+    template: "%s | Soul Wars Wiki",
+  },
+  description: DESCRIPTION,
   keywords: [
     "Soul Wars", "Bleach", "BYOND", "wiki", "guide", "builds", "skill tree",
     "Shinigami", "Hollow", "Quincy", "Arrancar", "Bankai", "Shikai", "Wandenreich",
     "Vaizard", "Fullbringer", "Bount", "Sinner", "perks", "factions", "Schrift",
   ],
-  metadataBase: new URL(BASE),
+  authors: [{ name: "Pipe", url: "https://discord.gg/9T5gPBe" }],
+  creator: "Pipe",
+  publisher: "Soul Wars Community",
+  category: "Gaming",
+
   openGraph: {
-    title: "Soul Wars — Community Wiki v3.0",
-    description: "Complete guide for Bleach: Soul Wars v3.0 — faction skill trees, builds, and post-wipe data.",
+    title: TITLE,
+    description: DESCRIPTION,
     url: BASE,
     siteName: "Soul Wars Community Wiki",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Soul Wars Community Wiki — v3.0",
+      },
+    ],
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "Soul Wars — Community Wiki v3.0",
-    description: "Complete guide for Bleach: Soul Wars v3.0 — skill trees, builds, and post-wipe data.",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ["/opengraph-image"],
   },
-  alternates: { canonical: BASE },
+
+  alternates: {
+    canonical: BASE,
+  },
+
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
+  other: {
+    "theme-color": "#e74c3c",
+    "discord:invite": "https://discord.gg/9T5gPBe",
   },
 };
 
@@ -49,11 +83,12 @@ const jsonLd = {
       "@type": "WebPage",
       "@id": `${BASE}/#webpage`,
       url: BASE,
-      name: "Soul Wars — Community Wiki v3.0",
+      name: TITLE,
       isPartOf: { "@id": `${BASE}/#website` },
-      description: "Complete guide for Bleach: Soul Wars v3.0. 7 factions with skill trees, stat formulas, mob table, perk system, build maker, and new-player tips.",
+      description: DESCRIPTION,
       inLanguage: "en-US",
       dateModified: new Date().toISOString(),
+      author: { "@type": "Person", name: "Pipe" },
     },
     {
       "@type": "ItemList",
@@ -61,13 +96,13 @@ const jsonLd = {
       name: "Soul Wars Factions",
       numberOfItems: 7,
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Shinigami", url: `${BASE}/factions/shinigami` },
-        { "@type": "ListItem", position: 2, name: "Hollow / Arrancar", url: `${BASE}/factions/hollow` },
+        { "@type": "ListItem", position: 1, name: "Shinigami",          url: `${BASE}/factions/shinigami` },
+        { "@type": "ListItem", position: 2, name: "Hollow / Arrancar",  url: `${BASE}/factions/hollow` },
         { "@type": "ListItem", position: 3, name: "Quincy / Wandenreich", url: `${BASE}/factions/quincy` },
-        { "@type": "ListItem", position: 4, name: "Fullbringer", url: `${BASE}/factions/fullbringer` },
-        { "@type": "ListItem", position: 5, name: "Vaizard", url: `${BASE}/factions/vaizard` },
-        { "@type": "ListItem", position: 6, name: "Bount", url: `${BASE}/factions/bount` },
-        { "@type": "ListItem", position: 7, name: "Sinner", url: `${BASE}/factions/sinner` },
+        { "@type": "ListItem", position: 4, name: "Fullbringer",        url: `${BASE}/factions/fullbringer` },
+        { "@type": "ListItem", position: 5, name: "Vaizard",            url: `${BASE}/factions/vaizard` },
+        { "@type": "ListItem", position: 6, name: "Bount",              url: `${BASE}/factions/bount` },
+        { "@type": "ListItem", position: 7, name: "Sinner",             url: `${BASE}/factions/sinner` },
       ],
     },
   ],
@@ -83,6 +118,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         />
         <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt" />
         <link rel="alternate" type="text/plain" title="LLMs-full.txt" href="/llms-full.txt" />
+        <meta name="theme-color" content="#e74c3c" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
