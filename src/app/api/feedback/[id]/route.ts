@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getSupabase } from '@/lib/supabase';
+import { getSupabaseAdmin } from '@/lib/supabase';
 
 export async function DELETE(
   req: Request,
@@ -17,7 +17,7 @@ export async function DELETE(
   // Probe request — confirms correct password without touching DB
   if (id === '__probe') return NextResponse.json({ error: 'Not found' }, { status: 404 });
 
-  const { error } = await getSupabase().from('feedback').delete().eq('id', id);
+  const { error } = await getSupabaseAdmin().from('feedback').delete().eq('id', id);
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
   return NextResponse.json({ ok: true });

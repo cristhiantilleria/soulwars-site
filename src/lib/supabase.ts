@@ -1,6 +1,7 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 
 let _client: SupabaseClient | null = null;
+let _adminClient: SupabaseClient | null = null;
 
 export function getSupabase(): SupabaseClient {
   if (!_client) {
@@ -10,4 +11,15 @@ export function getSupabase(): SupabaseClient {
     _client = createClient(url, key);
   }
   return _client;
+}
+
+// Uses service role key — bypasses RLS for server-side admin operations
+export function getSupabaseAdmin(): SupabaseClient {
+  if (!_adminClient) {
+    const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+    if (!url || !key) throw new Error('SUPABASE_SERVICE_ROLE_KEY not set');
+    _adminClient = createClient(url, key, { auth: { persistSession: false } });
+  }
+  return _adminClient;
 }
