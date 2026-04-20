@@ -16,8 +16,12 @@ export default function Footer() {
           join the Discord
         </a>
       </p>
-      <p className="mt-2 text-xs text-[#7a8aaa]/50">
-        Made by <span className="text-[#d4af37]">Pipe</span>
+      <p className="mt-3 text-xs text-[#7a8aaa]/50 flex items-center justify-center gap-3">
+        <a href="/feedback" className="text-[#8e44ad] hover:underline underline-offset-2 transition-colors">
+          Submit Feedback &amp; Ideas
+        </a>
+        <span className="text-[#2a3450]">·</span>
+        <span>Made by <span className="text-[#d4af37]">Pipe</span></span>
       </p>
     </footer>
   );

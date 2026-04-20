@@ -10,6 +10,7 @@ const LINKS = [
   { href: "#builds",   label: "Build Maker" },
   { href: "#tips",     label: "New Players" },
   { href: "/updates",  label: "Updates" },
+  { href: "/feedback", label: "Feedback" },
 ];
 
 export default function Navigation() {
