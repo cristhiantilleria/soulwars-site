@@ -2,18 +2,23 @@ import { NextResponse } from 'next/server';
 import { getSupabase } from '@/lib/supabase';
 
 export async function POST(
-  _req: Request,
+  req: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const { id } = await params;
+    const { direction = 'up' } = await req.json().catch(() => ({}));
+    const delta = direction === 'down' ? -1 : 1;
     const sb = getSupabase();
 
-    // Atomic increment via Postgres function (preferred)
-    const { data: rpcData, error: rpcError } = await sb.rpc('increment_votes', { item_id: id });
+    // Try atomic RPC first
+    const { data: rpcData, error: rpcError } = await sb.rpc('vote_feedback', {
+      item_id: id,
+      delta,
+    });
     if (!rpcError) return NextResponse.json({ votes: rpcData });
 
-    // Fallback: select then update
+    // Fallback: select + update
     const { data: item, error: fetchError } = await sb
       .from('feedback')
       .select('votes')
@@ -24,7 +29,7 @@ export async function POST(
 
     const { data: updated, error: updateError } = await sb
       .from('feedback')
-      .update({ votes: item.votes + 1 })
+      .update({ votes: item.votes + delta })
       .eq('id', id)
       .select('votes')
       .single();
