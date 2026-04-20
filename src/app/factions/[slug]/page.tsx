@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { FACTIONS, type Squad } from '@/data/factions';
+import { FACTIONS, type Squad, type NamedSection } from '@/data/factions';
 import { getTips } from '@/data/builds';
 import { SHINIGAMI_TREE } from '@/data/skilltrees/shinigami';
 import { HOLLOW_TREE } from '@/data/skilltrees/hollow';
@@ -225,11 +225,36 @@ function SquadCard({ squad, factionColor }: { squad: Squad; factionColor: string
       </ul>
       {squad.captainPerk && (
         <div className="border-t border-white/[0.06] pt-2">
-          <span className="font-title text-[0.6rem] tracking-widest uppercase text-[#d4af37]">Captain: </span>
+          <span className="font-title text-[0.6rem] tracking-widest uppercase text-[#d4af37]">
+            {squad.captainLabel ?? "Captain"}:{" "}
+          </span>
           <span className="font-body text-[0.8rem] text-[#7a8aaa]">{squad.captainPerk}</span>
         </div>
       )}
     </div>
+  );
+}
+
+const COLS_CLASS: Record<2 | 3 | 4, string> = {
+  2: "sm:grid-cols-2",
+  3: "sm:grid-cols-2 lg:grid-cols-3",
+  4: "sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4",
+};
+
+function NamedSectionBlock({ ns, factionColor }: { ns: NamedSection; factionColor: string }) {
+  const cols = ns.columns ?? 3;
+  return (
+    <section className="mb-20">
+      <SectionHeader eyebrow={ns.eyebrow} title={ns.title} />
+      {ns.note && (
+        <p className="font-body text-sm text-[#7a8aaa] mb-6 -mt-6">{ns.note}</p>
+      )}
+      <div className={`grid gap-4 ${COLS_CLASS[cols]}`}>
+        {ns.items.map((item) => (
+          <SquadCard key={item.name} squad={item} factionColor={factionColor} />
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -387,17 +412,10 @@ export default async function FactionPage({ params }: { params: Promise<{ slug: 
           </div>
         </section>
 
-        {/* ── Squads ─────────────────────────────────────────────────────────── */}
-        {faction.squads && faction.squads.length > 0 && (
-          <section className="mb-20">
-            <SectionHeader eyebrow="Organizations" title={faction.squadsLabel ?? "Squads & Divisions"} />
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {faction.squads.map((squad) => (
-                <SquadCard key={squad.name} squad={squad} factionColor={faction.color} />
-              ))}
-            </div>
-          </section>
-        )}
+        {/* ── Named Sections (squads, ranks, types, etc.) ────────────────────── */}
+        {faction.namedSections?.map((ns) => (
+          <NamedSectionBlock key={ns.title} ns={ns} factionColor={faction.color} />
+        ))}
 
         {/* ── Skill Tree ─────────────────────────────────────────────────────── */}
         <section className="mb-20">

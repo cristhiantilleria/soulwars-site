@@ -3,6 +3,15 @@ export interface Squad {
   tag: "offense" | "defense" | "utility" | "farming";
   perks: string[];
   captainPerk?: string;
+  captainLabel?: string;
+}
+
+export interface NamedSection {
+  eyebrow: string;
+  title: string;
+  note?: string;
+  columns?: 2 | 3 | 4;
+  items: Squad[];
 }
 
 export interface FactionDetail {
@@ -12,11 +21,11 @@ export interface FactionDetail {
   color: string;
   tagline: string;
   sections: { title: string; items: { label: string; value?: string }[] }[];
-  squads?: Squad[];
-  squadsLabel?: string;
+  namedSections?: NamedSection[];
 }
 
 export const FACTIONS: FactionDetail[] = [
+  // ─── Shinigami ────────────────────────────────────────────────────────────
   {
     id: "shinigami",
     name: "Shinigami",
@@ -51,11 +60,13 @@ export const FACTIONS: FactionDetail[] = [
         ],
       },
       {
-        title: "Limit Release",
+        title: "Shunko",
         items: [
-          { label: "Learned at Level 70 (Lt or Captain only)" },
-          { label: "Boosts stats by lvl ÷ 260" },
-          { label: "At Lv130 = +50% all stats" },
+          { label: "Level 30 · 110 Hakuda Mastery" },
+          { label: "15 Backstep Mastery · 65 Flash Step Mastery" },
+          { label: "40 Kido Mastery" },
+          { label: "Speak with Yoruichi near Squad 2 barracks" },
+          { label: "Squad 2 members learn additional exclusive Shunko skills" },
         ],
       },
       {
@@ -69,13 +80,11 @@ export const FACTIONS: FactionDetail[] = [
         ],
       },
       {
-        title: "Shunko",
+        title: "Limit Release",
         items: [
-          { label: "Level 30 · 110 Hakuda Mastery" },
-          { label: "15 Backstep Mastery · 65 Flash Step Mastery" },
-          { label: "40 Kido Mastery" },
-          { label: "Speak with Yoruichi near Squad 2 barracks" },
-          { label: "Squad 2 members learn additional exclusive Shunko skills" },
+          { label: "Learned at Level 70 (Lt or Captain only)" },
+          { label: "Boosts stats by lvl ÷ 260" },
+          { label: "At Lv130 = +50% all stats" },
         ],
       },
       {
@@ -88,93 +97,32 @@ export const FACTIONS: FactionDetail[] = [
         ],
       },
     ],
-    squads: [
+    namedSections: [
       {
-        name: "Squad 1",
-        tag: "defense",
-        perks: ["+20% Atk/Rei", "+24% Def"],
-        captainPerk: "Access to all 3 Sub-Captain Squad Perks (Squads 2, 3, 6, 7, 11)",
-      },
-      {
-        name: "Squad 2",
-        tag: "offense",
-        perks: ["+20% Critical Damage", "1.15× Back Damage", "+50 Hakuda Cap", "+50% Hakuda Training", "+100% Shunpo Training", "-50% Shunpo Drain", "+2 Move Speed"],
-        captainPerk: "Promote / Demote own Lieutenant",
-      },
-      {
-        name: "Squad 3",
-        tag: "offense",
-        perks: ["+10% Damage Dealt"],
-        captainPerk: "+15% Damage Dealt",
-      },
-      {
-        name: "Squad 4",
-        tag: "utility",
-        perks: ["+70% Reiryoku Regen", "Exclusive AoE Heal skill"],
-        captainPerk: "Promote / Demote own Lieutenant",
-      },
-      {
-        name: "Squad 5",
-        tag: "farming",
-        perks: ["+15% Leveling & Passive EXP", "+5% Atk/Rei", "+10% Def", "+25 Hakuda/Zanjutsu/Kido Density Cap", "+15 Toughness Cap"],
-        captainPerk: "Promote / Demote own Lieutenant",
-      },
-      {
-        name: "Squad 6",
-        tag: "utility",
-        perks: ["+50% Kido Training", "+100% Flash Training", "+10% Rei", "+40 Kido Density Cap"],
-        captainPerk: "Promote / Demote own Lieutenant",
-      },
-      {
-        name: "Squad 7",
-        tag: "defense",
-        perks: ["+50% Toughness Training", "+12.5% Def", "+30 Toughness Cap"],
-        captainPerk: "Promote / Demote own Lieutenant",
-      },
-      {
-        name: "Squad 8",
-        tag: "defense",
-        perks: ["+50% Reiryoku Drain", "+40% HP/Reiryoku Regen", "+5% Atk/Rei", "+10% Def"],
-        captainPerk: "Promote / Demote own Lieutenant",
-      },
-      {
-        name: "Squad 9",
-        tag: "offense",
-        perks: ["+100 Zanjutsu Cap", "+8% Atk"],
-        captainPerk: "Promote / Demote own Lieutenant",
-      },
-      {
-        name: "Squad 10",
-        tag: "farming",
-        perks: ["+100% Passive Training", "+35 Zanjutsu Cap"],
-        captainPerk: "Promote / Demote own Lieutenant",
-      },
-      {
-        name: "Squad 11",
-        tag: "offense",
-        perks: ["+50% Zanjutsu Training", "+50 Zanjutsu Cap", "+20 Toughness Cap", "+10% Atk", "+8% Def"],
-        captainPerk: "Promote / Demote own Lieutenant",
-      },
-      {
-        name: "Squad 12",
-        tag: "farming",
-        perks: ["+80% Passive EXP", "+20% Regen Rate", "Poison-on-Hit"],
-        captainPerk: "Promote / Demote own Lieutenant",
-      },
-      {
-        name: "Squad 13",
-        tag: "utility",
-        perks: ["+6% Atk/Rei/Def", "+1% Atk/Rei/Def per Squad 13 member online"],
-        captainPerk: "Promote / Demote own Lieutenant",
-      },
-      {
-        name: "Kido Corps",
-        tag: "utility",
-        perks: ["Kido cast time halved", "+40 Kido Density Cap", "+40% Kido Density Training", "+75% Kido Mastery Training"],
-        captainPerk: "Kido is cast instantly",
+        eyebrow: "Organizations",
+        title: "Squads & Divisions",
+        columns: 4,
+        items: [
+          { name: "Squad 1", tag: "defense", perks: ["+20% Atk/Rei", "+24% Def"], captainLabel: "Captain", captainPerk: "Access to 3 Sub-Captain squad perks (Squads 2, 3, 6, 7, 11)" },
+          { name: "Squad 2", tag: "offense", perks: ["+20% Critical Damage", "1.15× Back Damage", "+50 Hakuda Cap", "+50% Hakuda Training", "+100% Shunpo Training", "-50% Shunpo Drain", "+2 Move Speed"], captainLabel: "Captain", captainPerk: "Promote / Demote own Lieutenant" },
+          { name: "Squad 3", tag: "offense", perks: ["+10% Damage Dealt"], captainLabel: "Captain", captainPerk: "+15% Damage Dealt" },
+          { name: "Squad 4", tag: "utility", perks: ["+70% Reiryoku Regen", "Exclusive AoE Heal skill"], captainLabel: "Captain", captainPerk: "Promote / Demote own Lieutenant" },
+          { name: "Squad 5", tag: "farming", perks: ["+15% Leveling & Passive EXP", "+5% Atk/Rei", "+10% Def", "+25 Hakuda/Zanjutsu/Kido Density Cap", "+15 Toughness Cap"], captainLabel: "Captain", captainPerk: "Promote / Demote own Lieutenant" },
+          { name: "Squad 6", tag: "utility", perks: ["+50% Kido Training", "+100% Flash Training", "+10% Rei", "+40 Kido Density Cap"], captainLabel: "Captain", captainPerk: "Promote / Demote own Lieutenant" },
+          { name: "Squad 7", tag: "defense", perks: ["+50% Toughness Training", "+12.5% Def", "+30 Toughness Cap"], captainLabel: "Captain", captainPerk: "Promote / Demote own Lieutenant" },
+          { name: "Squad 8", tag: "defense", perks: ["+50% Reiryoku Drain", "+40% HP/Reiryoku Regen", "+5% Atk/Rei", "+10% Def"], captainLabel: "Captain", captainPerk: "Promote / Demote own Lieutenant" },
+          { name: "Squad 9", tag: "offense", perks: ["+100 Zanjutsu Cap", "+8% Atk"], captainLabel: "Captain", captainPerk: "Promote / Demote own Lieutenant" },
+          { name: "Squad 10", tag: "farming", perks: ["+100% Passive Training", "+35 Zanjutsu Cap"], captainLabel: "Captain", captainPerk: "Promote / Demote own Lieutenant" },
+          { name: "Squad 11", tag: "offense", perks: ["+50% Zanjutsu Training", "+50 Zanjutsu Cap", "+20 Toughness Cap", "+10% Atk", "+8% Def"], captainLabel: "Captain", captainPerk: "Promote / Demote own Lieutenant" },
+          { name: "Squad 12", tag: "farming", perks: ["+80% Passive EXP", "+20% Regen Rate", "Poison-on-Hit"], captainLabel: "Captain", captainPerk: "Promote / Demote own Lieutenant" },
+          { name: "Squad 13", tag: "utility", perks: ["+6% Atk/Rei/Def", "+1% Atk/Rei/Def per Squad 13 member online"], captainLabel: "Captain", captainPerk: "Promote / Demote own Lieutenant" },
+          { name: "Kido Corps", tag: "utility", perks: ["Kido cast time halved", "+40 Kido Density Cap", "+40% Kido Density Training", "+75% Kido Mastery Training"], captainLabel: "Captain", captainPerk: "Kido is cast instantly" },
+        ],
       },
     ],
   },
+
+  // ─── Hollow ───────────────────────────────────────────────────────────────
   {
     id: "hollow",
     name: "Hollow",
@@ -201,51 +149,6 @@ export const FACTIONS: FactionDetail[] = [
         ],
       },
       {
-        title: "Hollow Perks — Weak",
-        items: [
-          { label: "+3% Crit Chance" },
-          { label: "+7.5% Crit Damage" },
-          { label: "+5% Melee Damage" },
-          { label: "-2% Damage Taken" },
-        ],
-      },
-      {
-        title: "Hollow Perks — Medium",
-        items: [
-          { label: "+3% Crit Chance" },
-          { label: "+7.5% Crit Damage" },
-          { label: "+5% Melee Damage" },
-          { label: "+5% Skill Damage" },
-          { label: "-2% Damage Taken" },
-        ],
-      },
-      {
-        title: "Hollow Perks — Strong",
-        items: [
-          { label: "+5% Crit Chance" },
-          { label: "+10% Crit Damage" },
-          { label: "+7% Melee Damage" },
-          { label: "+7% Skill Damage" },
-          { label: "-3% Damage Taken" },
-          { label: "+5% Both Melee & Skill Damage" },
-        ],
-      },
-      {
-        title: "Hollow Perks — Menos Grande",
-        items: [
-          { label: "+50% Cero Damage" },
-          { label: "Cero slows targets for 1.5s" },
-          { label: "0 Cero charge time + 100% Cero projectile speed" },
-        ],
-      },
-      {
-        title: "Hollow Perks — Vasto Lorde",
-        items: [
-          { label: "-7% Damage Taken, but +25% more back-hit damage against you" },
-          { label: "+7% Damage Dealt, but +7% more Damage Taken" },
-        ],
-      },
-      {
         title: "Arrancar Unlock",
         items: [
           { label: "Talk to Aizen in Las Noches after Menos Grande+" },
@@ -260,108 +163,79 @@ export const FACTIONS: FactionDetail[] = [
           { value: "Greater Regeneration", label: "+50% Regeneration" },
         ],
       },
-      {
-        title: "Resurrecciones — Attack",
-        items: [
-          { value: "Grimmjow", label: "Ress: +96% atk, +24% def/dex · Hogyoku: +150% atk, +25% def, +40% dex" },
-          { value: "Nel", label: "Ress: +96% atk, +24% def/dex" },
-          { value: "Nnoitra", label: "Ress: +72% def, +24% dex · Hogyoku: +100% def/dex" },
-          { value: "Yammy", label: "Ress: +96% atk, +60% def, +40% hp · Enraged: +144% atk · Hogyoku: +120% def, +40% hp" },
-          { value: "Charlotte", label: "Ress: +180% atk, +120% def" },
-          { value: "Del Toro", label: "Ress: +96% atk, +24% def/dex" },
-        ],
-      },
-      {
-        title: "Resurrecciones — Reiatsu",
-        items: [
-          { value: "Stark (Guns)", label: "Ress: +160% rei, +24% dex · Swords: +220% rei, +72% dex · Hogyoku: +60% def, +150% rei, +100% dex" },
-          { value: "Ulquiorra", label: "Ress: +30% def, +96% rei, +24% dex · Segunda Etapa: +60% def, +120% rei, +48% dex · Hogyoku: +60% def, +150% rei, +100% dex" },
-          { value: "Barragan", label: "Ress: +96% rei · Hogyoku: +150% rei, def boosted by +100% rei" },
-          { value: "Volcanica", label: "Ress: +30% def, +96% rei, +24% dex · Hogyoku: +60% def, +150% rei, +100% dex" },
-          { value: "Harribel", label: "Ress: +96% rei" },
-        ],
-      },
-      {
-        title: "Espada Ranks",
-        items: [
-          { value: "Leader", label: "Lv120 · +13.5% atk/rei, +12.5% def" },
-          { value: "Espada 1", label: "Lv115 · +12.5% atk/rei, +11.5% def" },
-          { value: "Espada 2", label: "Lv110 · +11.5% atk/rei, +10.5% def" },
-          { value: "Espada 3", label: "Lv105 · +10.5% atk/rei, +9.5% def" },
-          { value: "Espada 4", label: "Lv100 · +9.5% atk/rei, +8.5% def" },
-          { value: "Espada 5", label: "Lv95 · +8.5% atk/rei, +7.5% def" },
-          { value: "Espada 6", label: "Lv90 · +7.5% atk/rei, +6.5% def" },
-          { value: "Espada 7", label: "Lv80 · +6.5% atk/rei, +5.5% def" },
-          { value: "Espada 8", label: "Lv75 · +5.5% atk/rei, +4.5% def" },
-          { value: "Espada 9", label: "Lv70 · +4.5% atk/rei, +3.5% def" },
-          { value: "Espada 10", label: "Lv65 · +3.5% atk/rei, +2.5% def" },
-        ],
-      },
     ],
-    squadsLabel: "Fraccion Perks",
-    squads: [
+    namedSections: [
       {
-        name: "Fraccion 1 — Solitude",
-        tag: "farming",
-        perks: ["+10% base stats", "+10% passive experience", "+10% experience"],
-        captainPerk: "+15% base stats, +20% passive experience, +20% experience",
+        eyebrow: "Transformation",
+        title: "Hollow Evolution Perks",
+        note: "Choose one perk when you reach each stage.",
+        columns: 3,
+        items: [
+          { name: "Weak Hollow", tag: "offense", perks: ["+3% Crit Chance", "+7.5% Crit Damage", "+5% Melee Damage", "-2% Damage Taken"] },
+          { name: "Medium Hollow", tag: "offense", perks: ["+3% Crit Chance", "+7.5% Crit Damage", "+5% Melee Damage", "+5% Skill Damage", "-2% Damage Taken"] },
+          { name: "Strong Hollow", tag: "offense", perks: ["+5% Crit Chance", "+10% Crit Damage", "+7% Melee Damage", "+7% Skill Damage", "-3% Damage Taken", "+5% Both Melee & Skill Damage"] },
+          { name: "Menos Grande", tag: "utility", perks: ["+50% Cero Damage", "Cero slows targets for 1.5s", "0 Cero charge time + 100% Cero projectile speed"] },
+          { name: "Adjucha", tag: "defense", perks: ["+30% Crit Damage, -20 Defense", "+15% dmg on next attack after back hit", "20% less Crit Damage taken", "50% resistance against slows"], captainLabel: "Note", captainPerk: "Adjucha perks are currently disabled in-game" },
+          { name: "Vasto Lorde", tag: "offense", perks: ["-7% Damage Taken (but +25% more back-hit damage against you)", "+7% Damage Dealt (but +7% more Damage Taken)"] },
+        ],
       },
       {
-        name: "Fraccion 2 — Age",
-        tag: "utility",
-        perks: ["Enemies within 80px of you cannot Shunpo"],
-        captainPerk: "Force enemies to walk for 0.5s on hit (1.5s CD)",
+        eyebrow: "Resurreccion",
+        title: "Types & Stat Boosts",
+        columns: 3,
+        items: [
+          { name: "Grimmjow", tag: "offense", perks: ["+96% Atk, +24% Def/Dex"], captainLabel: "Hogyoku", captainPerk: "+150% Atk, +25% Def, +40% Dex (also +40% Dex on hit for 1s)" },
+          { name: "Nel", tag: "offense", perks: ["+96% Atk, +24% Def/Dex"] },
+          { name: "Nnoitra", tag: "defense", perks: ["+72% Def, +24% Dex"], captainLabel: "Hogyoku", captainPerk: "+100% Def/Dex" },
+          { name: "Yammy", tag: "defense", perks: ["+96% Atk, +60% Def, +40% HP"], captainLabel: "Enraged / Hogyoku", captainPerk: "Enraged: +144% Atk · Hogyoku: +120% Def, +40% HP" },
+          { name: "Charlotte", tag: "offense", perks: ["+180% Atk, +120% Def"] },
+          { name: "Del Toro", tag: "offense", perks: ["+96% Atk, +24% Def/Dex"] },
+          { name: "Stark (Guns)", tag: "utility", perks: ["+160% Rei, +24% Dex"], captainLabel: "Swords / Hogyoku", captainPerk: "Swords: +220% Rei, +72% Dex · Hogyoku: +60% Def, +150% Rei, +100% Dex" },
+          { name: "Ulquiorra", tag: "utility", perks: ["+30% Def, +96% Rei, +24% Dex"], captainLabel: "Segunda Etapa / Hogyoku", captainPerk: "Segunda: +60% Def, +120% Rei, +48% Dex · Hogyoku: +60% Def, +150% Rei, +100% Dex" },
+          { name: "Barragan", tag: "utility", perks: ["+96% Rei"], captainLabel: "Hogyoku", captainPerk: "+150% Rei, Def boosted by +100% Rei" },
+          { name: "Volcanica", tag: "utility", perks: ["+30% Def, +96% Rei, +24% Dex"], captainLabel: "Hogyoku", captainPerk: "+60% Def, +150% Rei, +100% Dex" },
+          { name: "Harribel", tag: "utility", perks: ["+96% Rei"] },
+        ],
       },
       {
-        name: "Fraccion 3 — Sacrifice",
-        tag: "offense",
-        perks: ["Gain 30% HP and Reiryoku of every enemy killed", "For every 1% HP missing → +0.3% damage"],
-        captainPerk: "For every 1% HP missing → +0.4% damage",
+        eyebrow: "Power Structure",
+        title: "Espada Ranks",
+        columns: 4,
+        items: [
+          { name: "Espada Leader", tag: "offense", perks: ["Level 120", "+13.5% Atk/Rei", "+12.5% Def"] },
+          { name: "Espada 1", tag: "offense", perks: ["Level 115", "+12.5% Atk/Rei", "+11.5% Def"] },
+          { name: "Espada 2", tag: "offense", perks: ["Level 110", "+11.5% Atk/Rei", "+10.5% Def"] },
+          { name: "Espada 3", tag: "offense", perks: ["Level 105", "+10.5% Atk/Rei", "+9.5% Def"] },
+          { name: "Espada 4", tag: "offense", perks: ["Level 100", "+9.5% Atk/Rei", "+8.5% Def"] },
+          { name: "Espada 5", tag: "offense", perks: ["Level 95", "+8.5% Atk/Rei", "+7.5% Def"] },
+          { name: "Espada 6", tag: "offense", perks: ["Level 90", "+7.5% Atk/Rei", "+6.5% Def"] },
+          { name: "Espada 7", tag: "offense", perks: ["Level 80", "+6.5% Atk/Rei", "+5.5% Def"] },
+          { name: "Espada 8", tag: "offense", perks: ["Level 75", "+5.5% Atk/Rei", "+4.5% Def"] },
+          { name: "Espada 9", tag: "offense", perks: ["Level 70", "+4.5% Atk/Rei", "+3.5% Def"] },
+          { name: "Espada 10", tag: "offense", perks: ["Level 65", "+3.5% Atk/Rei", "+2.5% Def"] },
+        ],
       },
       {
-        name: "Fraccion 4 — Emptiness",
-        tag: "defense",
-        perks: ["+30% Parry damage", "+50% Health Regen Rate"],
-        captainPerk: "+50% Parry damage",
-      },
-      {
-        name: "Fraccion 5 — Despair",
-        tag: "defense",
-        perks: ["Toughness reduces ~0.4% dmg/level (vs standard 0.35%)", "+30% Defence stat"],
-        captainPerk: "Toughness reduces ~0.45% dmg/level",
-      },
-      {
-        name: "Fraccion 6 — Destruction",
-        tag: "offense",
-        perks: ["+3 Speed for 4.5s every time you deal damage"],
-        captainPerk: "+12% Attack boost",
-      },
-      {
-        name: "Fraccion 7 — Intoxication",
-        tag: "utility",
-        perks: ["Create 10 Shunpo clones every time you Shunpo"],
-        captainPerk: "Always has +2 Move Speed",
-      },
-      {
-        name: "Fraccion 8 — Madness",
-        tag: "defense",
-        perks: ["+10% damage converted to Lifesteal"],
-        captainPerk: "+15% damage converted to Lifesteal",
-      },
-      {
-        name: "Fraccion 9 — Greed",
-        tag: "farming",
-        perks: ["+20% experience", "+50% passive experience"],
-        captainPerk: "+30% experience, +70% passive experience",
-      },
-      {
-        name: "Fraccion 10 — Rage",
-        tag: "offense",
-        perks: ["Every 1% HP missing → +0.5% more damage"],
-        captainPerk: "Every 1% HP missing → +0.65% more damage",
+        eyebrow: "Organizations",
+        title: "Fraccion Perks",
+        columns: 3,
+        items: [
+          { name: "Fraccion 1 — Solitude", tag: "farming", perks: ["+10% base stats", "+10% passive experience", "+10% experience"], captainLabel: "Espada Perk", captainPerk: "+15% base stats, +20% passive EXP, +20% EXP" },
+          { name: "Fraccion 2 — Age", tag: "utility", perks: ["Enemies within 80px cannot Shunpo"], captainLabel: "Espada Perk", captainPerk: "Force enemies to walk for 0.5s on hit (1.5s CD)" },
+          { name: "Fraccion 3 — Sacrifice", tag: "offense", perks: ["Gain 30% HP and Reiryoku from every kill", "Every 1% HP missing → +0.3% damage"], captainLabel: "Espada Perk", captainPerk: "Every 1% HP missing → +0.4% damage" },
+          { name: "Fraccion 4 — Emptiness", tag: "defense", perks: ["+30% Parry damage", "+50% Health Regen Rate"], captainLabel: "Espada Perk", captainPerk: "+50% Parry damage" },
+          { name: "Fraccion 5 — Despair", tag: "defense", perks: ["Toughness reduces ~0.4% dmg/level (vs 0.35% standard)", "+30% Defence stat"], captainLabel: "Espada Perk", captainPerk: "Toughness reduces ~0.45% dmg/level" },
+          { name: "Fraccion 6 — Destruction", tag: "offense", perks: ["+3 Speed for 4.5s every time you deal damage"], captainLabel: "Espada Perk", captainPerk: "+12% Attack boost" },
+          { name: "Fraccion 7 — Intoxication", tag: "utility", perks: ["Create 10 Shunpo clones every time you Shunpo"], captainLabel: "Espada Perk", captainPerk: "Always has +2 Move Speed" },
+          { name: "Fraccion 8 — Madness", tag: "defense", perks: ["+10% damage converted to Lifesteal"], captainLabel: "Espada Perk", captainPerk: "+15% damage converted to Lifesteal" },
+          { name: "Fraccion 9 — Greed", tag: "farming", perks: ["+20% experience", "+50% passive experience"], captainLabel: "Espada Perk", captainPerk: "+30% experience, +70% passive experience" },
+          { name: "Fraccion 10 — Rage", tag: "offense", perks: ["Every 1% HP missing → +0.5% more damage"], captainLabel: "Espada Perk", captainPerk: "Every 1% HP missing → +0.65% more damage" },
+        ],
       },
     ],
   },
+
+  // ─── Quincy ───────────────────────────────────────────────────────────────
   {
     id: "quincy",
     name: "Quincy",
@@ -390,20 +264,26 @@ export const FACTIONS: FactionDetail[] = [
         items: [
           { value: "Standard", label: "+72% def, +168% rei, +36% dex" },
           { value: "High-tier", label: "+84% def, +180% rei" },
-          { value: "Pure rei", label: "+180% rei" },
+          { value: "Pure Rei", label: "+180% rei" },
         ],
       },
+    ],
+    namedSections: [
       {
+        eyebrow: "Power Structure",
         title: "Wandenreich Ranks",
+        columns: 4,
         items: [
-          { value: "Emperor", label: "Lv122" },
-          { value: "Crown Prince", label: "Lv120 +14% rei" },
-          { value: "Grandmaster", label: "Lv110 +12% rei" },
-          { value: "SS Leader", label: "Lv100 +10% rei" },
+          { name: "Emperor", tag: "offense", perks: ["Level 122"] },
+          { name: "Crown Prince", tag: "offense", perks: ["Level 120", "+14% Rei"] },
+          { name: "Grandmaster", tag: "offense", perks: ["Level 110", "+12% Rei"] },
+          { name: "SS Leader", tag: "offense", perks: ["Level 100", "+10% Rei"] },
         ],
       },
     ],
   },
+
+  // ─── Fullbringer ──────────────────────────────────────────────────────────
   {
     id: "fullbringer",
     name: "Fullbringer",
@@ -428,30 +308,37 @@ export const FACTIONS: FactionDetail[] = [
           { label: "100 Fullbring Mastery" },
         ],
       },
+    ],
+    namedSections: [
       {
-        title: "Stat Boosts",
+        eyebrow: "Fullbring Types",
+        title: "Types & Stat Boosts",
+        columns: 3,
         items: [
-          { value: "Ichigo/Sado/Ginjo", label: "+60% atk, +24% def/dex" },
-          { value: "Advanced", label: "+90% atk, +36% def/dex" },
-          { value: "Yukio/Inoue", label: "+96% rei → +144% Advanced" },
+          { name: "Ichigo / Sado / Ginjo", tag: "offense", perks: ["Fullbring: +60% Atk, +24% Def/Dex"], captainLabel: "Advanced", captainPerk: "+90% Atk, +36% Def/Dex" },
+          { name: "Yukio / Inoue", tag: "utility", perks: ["Fullbring: +96% Rei"], captainLabel: "Advanced", captainPerk: "+144% Rei" },
         ],
       },
       {
+        eyebrow: "Power Structure",
         title: "Xcution Ranks",
+        columns: 4,
         items: [
-          { value: "Leader", label: "Lv120 · +25% atk/def/rei" },
-          { value: "Agent 1", label: "Lv110 · +24% atk/def/rei" },
-          { value: "Agent 2", label: "Lv100 · +23% atk/def/rei" },
-          { value: "Agent 3", label: "Lv90 · +21% atk/def/rei" },
-          { value: "Agent 4", label: "Lv80 · +20% atk/def/rei" },
-          { value: "Agent 5", label: "Lv70 · +18% atk/def/rei" },
-          { value: "Agent 6", label: "Lv60" },
-          { value: "Agent 7", label: "Lv50" },
-          { value: "Agent 8", label: "Lv40" },
+          { name: "Xcution Leader", tag: "offense", perks: ["Level 120", "+25% Atk/Def/Rei"] },
+          { name: "Agent 1", tag: "offense", perks: ["Level 110", "+24% Atk/Def/Rei"] },
+          { name: "Agent 2", tag: "offense", perks: ["Level 100", "+23% Atk/Def/Rei"] },
+          { name: "Agent 3", tag: "offense", perks: ["Level 90", "+21% Atk/Def/Rei"] },
+          { name: "Agent 4", tag: "offense", perks: ["Level 80", "+20% Atk/Def/Rei"] },
+          { name: "Agent 5", tag: "offense", perks: ["Level 70", "+18% Atk/Def/Rei"] },
+          { name: "Agent 6", tag: "utility", perks: ["Level 60"] },
+          { name: "Agent 7", tag: "utility", perks: ["Level 50"] },
+          { name: "Agent 8", tag: "utility", perks: ["Level 40"] },
         ],
       },
     ],
   },
+
+  // ─── Vaizard ──────────────────────────────────────────────────────────────
   {
     id: "vaizard",
     name: "Vaizard",
@@ -474,31 +361,38 @@ export const FACTIONS: FactionDetail[] = [
           { value: "Cero", label: "5 Spirit Mastery" },
           { value: "Bala", label: "250 Mask Time + 25 Spirit Mastery" },
           { value: "Gran Rey Cero", label: "500 Mask Time + 50 Spirit Mastery" },
-          { value: "Vasto Mode", label: "10 Hogyoku Captures + 750 Mask Time + 1 RB" },
-        ],
-      },
-      {
-        title: "Mask Types",
-        items: [
-          { value: "Lisa", label: "+5% crit (+10% Vasto)" },
-          { value: "Ichigo", label: "+2 move speed (+3 Vasto)" },
-          { value: "Kensei", label: "+20% melee (+30% Vasto)" },
-          { value: "Shinji", label: "+65% def (+70% Vasto)" },
-          { value: "Hachi", label: "30% rei → Kido dmg, -4 cast time" },
-          { value: "Love", label: "+40% rei (+60% Vasto)" },
+          { value: "Vasto Mode", label: "10 Hogyoku Captures + 750 Mask Time + 1 Rebirth" },
         ],
       },
       {
         title: "Mask Mechanics",
         items: [
-          { label: "All masks: +15% def base (+30% Vasto)" },
+          { label: "All masks grant +15% Def base (+30% in Vasto)" },
           { label: "1 mastery = 1 second of mask time" },
           { label: "Cap: 1000 mastery = 1000s normal / 500s Vasto" },
           { label: "Train mask by hitting mobs while masked" },
         ],
       },
     ],
+    namedSections: [
+      {
+        eyebrow: "Mask System",
+        title: "Mask Types & Bonuses",
+        columns: 3,
+        items: [
+          { name: "Ichigo", tag: "utility", perks: ["+2 Move Speed"], captainLabel: "Vasto Form", captainPerk: "+3 Move Speed, +15% Dex" },
+          { name: "Kensei", tag: "offense", perks: ["+20% Melee Damage"], captainLabel: "Vasto Form", captainPerk: "+30% Melee Damage" },
+          { name: "Lisa", tag: "offense", perks: ["+5% Crit Chance"], captainLabel: "Vasto Form", captainPerk: "+10% Crit Chance" },
+          { name: "Hiyori", tag: "offense", perks: ["+10% Crit Damage"], captainLabel: "Vasto Form", captainPerk: "+15% Crit Damage" },
+          { name: "Shinji", tag: "defense", perks: ["+65% Def"], captainLabel: "Vasto Form", captainPerk: "+70% Def" },
+          { name: "Hachigen", tag: "utility", perks: ["30% Reiatsu converted to Kido damage", "-4 Kido Cast Time"], captainLabel: "Note", captainPerk: "No separate Vasto boost listed" },
+          { name: "Love", tag: "utility", perks: ["+40% Reiatsu"], captainLabel: "Vasto Form", captainPerk: "+60% Reiatsu" },
+        ],
+      },
+    ],
   },
+
+  // ─── Bount ────────────────────────────────────────────────────────────────
   {
     id: "bount",
     name: "Bount",
@@ -507,23 +401,29 @@ export const FACTIONS: FactionDetail[] = [
     tagline: "Artificially created immortals. Summon elemental dolls and fuse for ultimate power.",
     sections: [
       {
-        title: "Types & Boosts",
+        title: "How to Join",
         items: [
-          { value: "Guhl/Gunther (Water/Rei)", label: "+96% rei → +144% Advanced" },
-          { value: "Goethe (Fire/Rei)", label: "+96% rei → True: +170% rei, +40% def/dex" },
-          { value: "Dalk (Metal/Def)", label: "+60% def → True: +150% def, +40% dex" },
-        ],
-      },
-      {
-        title: "Notes",
-        items: [
-          { label: "Goethe and Dalk have a True Fullbring tier beyond Advanced" },
+          { label: "Same unlock path as Fullbringer" },
           { label: "Same Xcution rank system as Fullbringers" },
           { label: "Fused Form grants +2 Move Speed" },
         ],
       },
     ],
+    namedSections: [
+      {
+        eyebrow: "Doll Types",
+        title: "Types & Stat Boosts",
+        columns: 3,
+        items: [
+          { name: "Guhl / Gunther (Water)", tag: "utility", perks: ["Fullbring: +96% Rei"], captainLabel: "Advanced", captainPerk: "+144% Rei" },
+          { name: "Goethe (Fire)", tag: "utility", perks: ["Fullbring: +96% Rei"], captainLabel: "True Form", captainPerk: "+170% Rei, +40% Def/Dex" },
+          { name: "Dalk (Metal)", tag: "defense", perks: ["Fullbring: +60% Def"], captainLabel: "True Form", captainPerk: "+150% Def, +40% Dex" },
+        ],
+      },
+    ],
   },
+
+  // ─── Sinner ───────────────────────────────────────────────────────────────
   {
     id: "sinner",
     name: "Sinner",
@@ -539,23 +439,29 @@ export const FACTIONS: FactionDetail[] = [
           { label: "Uses Hollow skill tree" },
         ],
       },
+    ],
+    namedSections: [
       {
-        title: "Types",
+        eyebrow: "Paths",
+        title: "Sinner Types",
+        columns: 3,
         items: [
-          { label: "Speed Sinner" },
-          { label: "Tank Sinner" },
-          { label: "Ranged Sinner" },
+          { name: "Speed Sinner", tag: "utility", perks: ["High-mobility playstyle", "Flash-step focused combat"] },
+          { name: "Tank Sinner", tag: "defense", perks: ["High durability build", "Focus on absorbing damage"] },
+          { name: "Ranged Sinner", tag: "offense", perks: ["Ranged Cero-based attacks", "Keep distance and chip damage"] },
         ],
       },
       {
+        eyebrow: "Power Structure",
         title: "Hell Hierarchy",
+        columns: 4,
         items: [
-          { value: "Hell Overlord", label: "Level 120" },
-          { value: "Hell Ruler 5", label: "Level 115" },
-          { value: "Hell Ruler 4", label: "Level 110" },
-          { value: "Hell Ruler 3", label: "Level 105" },
-          { value: "Hell Ruler 2", label: "Level 100" },
-          { value: "Hell Ruler 1", label: "Level 95" },
+          { name: "Hell Overlord", tag: "offense", perks: ["Level 120"] },
+          { name: "Hell Ruler 5", tag: "offense", perks: ["Level 115"] },
+          { name: "Hell Ruler 4", tag: "offense", perks: ["Level 110"] },
+          { name: "Hell Ruler 3", tag: "offense", perks: ["Level 105"] },
+          { name: "Hell Ruler 2", tag: "offense", perks: ["Level 100"] },
+          { name: "Hell Ruler 1", tag: "offense", perks: ["Level 95"] },
         ],
       },
     ],
