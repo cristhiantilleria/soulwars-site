@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
 import Link from 'next/link';
 import { FACTIONS, type Squad, type NamedSection } from '@/data/factions';
 import { getTips } from '@/data/builds';
@@ -408,19 +407,8 @@ export default async function FactionPage({ params }: { params: Promise<{ slug: 
         <div className="absolute bottom-0 left-0 right-0 h-px reiatsu-ribbon opacity-40" />
 
         <div className="relative z-10 mx-auto max-w-4xl text-center">
-          <div className="mb-4 flex justify-center">
-            {faction.iconImg ? (
-              <Image
-                src={faction.iconImg}
-                alt={faction.name}
-                width={100}
-                height={100}
-                className="object-contain"
-                style={{ filter: `drop-shadow(0 0 20px ${faction.color}80)` }}
-              />
-            ) : (
-              <span className="text-6xl drop-shadow-lg">{faction.icon}</span>
-            )}
+          <div className="mb-4">
+            <span className="text-6xl drop-shadow-lg">{faction.icon}</span>
           </div>
           <h1
             className="font-display text-[clamp(2.2rem,6vw,4rem)] mb-3"
