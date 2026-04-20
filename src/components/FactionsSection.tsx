@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { FACTIONS, type FactionDetail } from "@/data/factions";
 import SectionHeader from "./SectionHeader";
@@ -35,7 +36,20 @@ function FactionCard({ faction }: { faction: FactionDetail }) {
       />
 
       <div className="relative z-10">
-        <div className="mb-3 text-3xl">{faction.icon}</div>
+        <div className="mb-3">
+          {faction.iconImg ? (
+            <Image
+              src={faction.iconImg}
+              alt={faction.name}
+              width={52}
+              height={52}
+              className="object-contain drop-shadow-lg"
+              style={{ filter: `drop-shadow(0 0 8px ${faction.color}66)` }}
+            />
+          ) : (
+            <span className="text-3xl">{faction.icon}</span>
+          )}
+        </div>
         <div
           className="font-title mb-1.5 text-[1.05rem] font-bold transition-colors"
           style={{ color: faction.color }}
