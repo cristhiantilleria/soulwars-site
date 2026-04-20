@@ -33,7 +33,7 @@ export const FACTIONS: FactionDetail[] = [
     id: "shinigami",
     name: "Shinigami",
     icon: "⚔️",
-    iconImg: "/icons/shinigami.png",
+    iconImg: "/icons/shinigami.webp",
     kanji: "死神",
     quote: "保護と均衡 · Guard the balance between worlds",
     color: "#5dade2",
