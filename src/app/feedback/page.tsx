@@ -46,7 +46,7 @@ function FeedbackCard({
   const type = TYPE_STYLES[item.type];
   const status = STATUS_STYLES[item.status];
   const age = (() => {
-    const diff = Date.now() - new Date(item.createdAt).getTime();
+    const diff = Date.now() - new Date(item.created_at).getTime();
     const days = Math.floor(diff / 86400000);
     if (days === 0) return "today";
     if (days === 1) return "yesterday";
@@ -296,7 +296,7 @@ export default function FeedbackPage() {
     .sort((a, b) =>
       sort === "votes"
         ? b.votes - a.votes
-        : new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        : new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
     );
 
   return (
@@ -343,10 +343,9 @@ export default function FeedbackPage() {
           <div className="mb-8 rounded-lg border border-[#d4af37]/40 bg-[#d4af37]/10 p-4 font-body text-sm text-[#d4af37]">
             <strong className="font-title tracking-widest uppercase text-xs">Setup Required</strong>
             <p className="mt-1 text-[#7a8aaa]">
-              Connect a Vercel KV database to enable persistence.{" "}
-              <a href="https://vercel.com/docs/storage/vercel-kv/quickstart" target="_blank" rel="noopener noreferrer" className="underline text-[#d4af37]">
-                Follow the Vercel KV quickstart →
-              </a>
+              Add <code className="text-[#d4af37]">NEXT_PUBLIC_SUPABASE_URL</code> and{" "}
+              <code className="text-[#d4af37]">NEXT_PUBLIC_SUPABASE_ANON_KEY</code> to your Vercel
+              environment variables, then run the SQL setup in your Supabase dashboard.
             </p>
           </div>
         )}

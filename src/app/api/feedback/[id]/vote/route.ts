@@ -1,6 +1,5 @@
-import { kv } from '@vercel/kv';
 import { NextResponse } from 'next/server';
-import type { FeedbackItem } from '../../route';
+import { getSupabase } from '@/lib/supabase';
 
 export async function POST(
   _req: Request,
@@ -8,13 +7,31 @@ export async function POST(
 ) {
   try {
     const { id } = await params;
-    const item = await kv.get<FeedbackItem>(`feedback:item:${id}`);
-    if (!item) return NextResponse.json({ error: 'Not found' }, { status: 404 });
+    const sb = getSupabase();
 
-    item.votes += 1;
-    await kv.set(`feedback:item:${id}`, item);
-    return NextResponse.json({ votes: item.votes });
-  } catch {
-    return NextResponse.json({ error: 'KV not configured' }, { status: 503 });
+    // Atomic increment via Postgres function (preferred)
+    const { data: rpcData, error: rpcError } = await sb.rpc('increment_votes', { item_id: id });
+    if (!rpcError) return NextResponse.json({ votes: rpcData });
+
+    // Fallback: select then update
+    const { data: item, error: fetchError } = await sb
+      .from('feedback')
+      .select('votes')
+      .eq('id', id)
+      .single();
+
+    if (fetchError || !item) return NextResponse.json({ error: 'Not found' }, { status: 404 });
+
+    const { data: updated, error: updateError } = await sb
+      .from('feedback')
+      .update({ votes: item.votes + 1 })
+      .eq('id', id)
+      .select('votes')
+      .single();
+
+    if (updateError) return NextResponse.json({ error: updateError.message }, { status: 500 });
+    return NextResponse.json({ votes: updated.votes });
+  } catch (e) {
+    return NextResponse.json({ error: (e as Error).message }, { status: 503 });
   }
 }

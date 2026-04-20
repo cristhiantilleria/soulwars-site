@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const BASE = "https://soulwars-site.vercel.app";
@@ -124,7 +125,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased font-body noise">{children}</body>
+      <body className="antialiased font-body noise">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
