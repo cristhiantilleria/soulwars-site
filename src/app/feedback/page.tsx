@@ -70,12 +70,38 @@ function FeedbackCard({
         >
           ▲
         </button>
-        <span
-          className="font-title text-sm font-bold tabular-nums"
-          style={{ color: item.votes > 0 ? "#d4af37" : item.votes < 0 ? "#e74c3c" : "#7a8aaa" }}
-        >
-          {item.votes}
-        </span>
+
+        {/* Reiatsu meter */}
+        <div className="flex flex-col items-center gap-0.5 my-0.5">
+          <div
+            className="relative w-2 rounded-full overflow-hidden"
+            style={{ height: 28, backgroundColor: "#1c2235" }}
+          >
+            <div
+              className="absolute bottom-0 w-full rounded-full transition-all duration-700"
+              style={{
+                height: `${Math.min(100, Math.max(4, 50 + item.votes * 12))}%`,
+                background: item.votes > 0
+                  ? "linear-gradient(to top, #d4af37, #f1c40f)"
+                  : item.votes < 0
+                  ? "#e74c3c"
+                  : "#2a3450",
+                boxShadow: item.votes > 0
+                  ? "0 0 6px rgba(212,175,55,0.6)"
+                  : item.votes < 0
+                  ? "0 0 6px rgba(231,76,60,0.5)"
+                  : "none",
+              }}
+            />
+          </div>
+          <span
+            className="font-title text-[0.62rem] font-bold tabular-nums leading-none"
+            style={{ color: item.votes > 0 ? "#d4af37" : item.votes < 0 ? "#e74c3c" : "#7a8aaa" }}
+          >
+            {item.votes > 0 ? "+" : ""}{item.votes}
+          </span>
+        </div>
+
         <button
           onClick={() => handleVote("down")}
           disabled={!!voted}

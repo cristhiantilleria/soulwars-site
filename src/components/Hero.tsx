@@ -21,7 +21,7 @@ export default function Hero() {
     if (!ctx) return;
 
     let raf: number;
-    const particles: { x: number; y: number; r: number; vx: number; vy: number; alpha: number }[] = [];
+    const particles: { x: number; y: number; r: number; vx: number; vy: number; alpha: number; color: string }[] = [];
 
     const resize = () => {
       canvas.width = canvas.offsetWidth;
@@ -30,14 +30,21 @@ export default function Hero() {
     resize();
     window.addEventListener("resize", resize);
 
-    for (let i = 0; i < 60; i++) {
+    const COLORS = [
+      "192,57,43",   // red — soul reiatsu
+      "142,68,173",  // purple — hollow reiatsu
+      "52,152,219",  // blue — quincy reiatsu
+      "212,175,55",  // gold — spirit energy
+    ];
+    for (let i = 0; i < 70; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        r: Math.random() * 1.5 + 0.3,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: -Math.random() * 0.4 - 0.1,
-        alpha: Math.random() * 0.5 + 0.1,
+        r: Math.random() * 1.8 + 0.3,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: -Math.random() * 0.5 - 0.08,
+        alpha: Math.random() * 0.45 + 0.08,
+        color: COLORS[Math.floor(Math.random() * COLORS.length)],
       });
     }
 
@@ -51,7 +58,7 @@ export default function Hero() {
         if (p.x > canvas.width + 5) p.x = -5;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(192,57,43,${p.alpha})`;
+        ctx.fillStyle = `rgba(${p.color},${p.alpha})`;
         ctx.fill();
       });
       raf = requestAnimationFrame(draw);
@@ -79,10 +86,11 @@ export default function Hero() {
       {/* Particle canvas */}
       <canvas ref={canvasRef} className="pointer-events-none absolute inset-0 h-full w-full" />
 
-      {/* Large kanji watermark */}
+      {/* Large kanji watermark — animated reiatsu pulse */}
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 select-none font-serif text-[40vw] leading-none font-black text-[#e74c3c]/[0.025]"
+        className="kanji-pulse pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 select-none font-serif text-[40vw] leading-none font-black text-[#e74c3c]"
+        style={{ opacity: 0.035 }}
       >
         魂
       </div>
@@ -114,7 +122,7 @@ export default function Hero() {
         </p>
 
         <div
-          className="my-8 h-px w-48 bg-gradient-to-r from-transparent via-[#e74c3c] to-transparent"
+          className="my-8 h-px w-48 reiatsu-ribbon opacity-60"
           style={{ animation: "fadeUp 0.7s 0.36s ease both" }}
         />
 

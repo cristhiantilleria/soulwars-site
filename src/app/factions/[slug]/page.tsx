@@ -199,19 +199,47 @@ const SQUAD_TAG_COLORS: Record<Squad["tag"], string> = {
   farming: "#27ae60",
 };
 
+/* Inline SVG icons for each tag */
+function TagIcon({ tag }: { tag: Squad["tag"] }) {
+  if (tag === "offense") return (
+    <svg width="9" height="9" viewBox="0 0 10 10" fill="currentColor" aria-hidden>
+      <path d="M8.5 0 L10 1.5 3.2 8.3 1 9.8 0.2 9 7 2.2z"/>
+      <path d="M6 3.5 L8 1.5 10 3.5 8 5.5z" opacity="0.6"/>
+    </svg>
+  );
+  if (tag === "defense") return (
+    <svg width="9" height="9" viewBox="0 0 10 10" fill="currentColor" aria-hidden>
+      <path d="M5 0 L10 2 L10 5.5 C10 8 7.5 9.8 5 10 C2.5 9.8 0 8 0 5.5 L0 2 Z"/>
+    </svg>
+  );
+  if (tag === "utility") return (
+    <svg width="9" height="9" viewBox="0 0 10 10" fill="currentColor" aria-hidden>
+      <path d="M5 0 L6.2 3.8 L10 3.8 L6.9 6.2 L8.1 10 L5 7.6 L1.9 10 L3.1 6.2 L0 3.8 L3.8 3.8Z"/>
+    </svg>
+  );
+  /* farming */
+  return (
+    <svg width="9" height="9" viewBox="0 0 10 10" fill="currentColor" aria-hidden>
+      <circle cx="5" cy="5" r="4" stroke="currentColor" fill="none" strokeWidth="1.5"/>
+      <circle cx="5" cy="5" r="1.8"/>
+    </svg>
+  );
+}
+
 function SquadCard({ squad, factionColor }: { squad: Squad; factionColor: string }) {
   const tagColor = SQUAD_TAG_COLORS[squad.tag];
   return (
     <div
-      className="rounded-lg border p-4 flex flex-col gap-3"
+      className="rounded-lg border p-4 flex flex-col gap-3 relative overflow-hidden"
       style={{ borderColor: `${factionColor}33`, backgroundColor: "#151a27" }}
     >
       <div className="flex items-center justify-between gap-2 flex-wrap">
         <h3 className="font-title text-sm font-bold text-[#e8eaf0]">{squad.name}</h3>
         <span
-          className="inline-block rounded px-2 py-0.5 font-title text-[0.58rem] tracking-widest uppercase"
+          className="inline-flex items-center gap-1 rounded px-2 py-0.5 font-title text-[0.58rem] tracking-widest uppercase"
           style={{ color: tagColor, border: `1px solid ${tagColor}44`, backgroundColor: `${tagColor}18` }}
         >
+          <TagIcon tag={squad.tag} />
           {squad.tag}
         </span>
       </div>
@@ -225,9 +253,17 @@ function SquadCard({ squad, factionColor }: { squad: Squad; factionColor: string
       </ul>
       {squad.captainPerk && (
         <div className="border-t border-white/[0.06] pt-2">
-          <span className="font-title text-[0.6rem] tracking-widest uppercase text-[#d4af37]">
-            {squad.captainLabel ?? "Captain"}:{" "}
-          </span>
+          {/* Captain haori insignia — 4 squares pattern */}
+          <div className="flex items-center gap-1.5 mb-1">
+            <svg width="22" height="7" viewBox="0 0 22 7" fill="none" aria-hidden>
+              {[0, 6, 12, 17].map((x) => (
+                <rect key={x} x={x} y="0" width="5" height="7" fill="#d4af37" opacity="0.65" rx="0.5" />
+              ))}
+            </svg>
+            <span className="font-title text-[0.6rem] tracking-widest uppercase text-[#d4af37]">
+              {squad.captainLabel ?? "Captain"}:
+            </span>
+          </div>
           <span className="font-body text-[0.8rem] text-[#7a8aaa]">{squad.captainPerk}</span>
         </div>
       )}
@@ -306,10 +342,21 @@ export default async function FactionPage({ params }: { params: Promise<{ slug: 
   }
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: 'var(--bg)' }}>
+    <div className="min-h-screen relative" style={{ backgroundColor: 'var(--bg)' }}>
+
+      {/* ── Full-page kanji watermark ───────────────────────────────────────── */}
+      <div
+        aria-hidden
+        className="kanji-pulse pointer-events-none fixed top-0 right-0 select-none font-serif font-black leading-none z-0 overflow-hidden"
+        style={{ color: faction.color, fontSize: 'clamp(16rem,35vw,46rem)', opacity: 0.018, lineHeight: 1 }}
+      >
+        {faction.kanji}
+      </div>
+
       {/* ── Nav bar ────────────────────────────────────────────────────────── */}
       <nav
-        className="sticky top-0 z-50 border-b border-[#2a3450] bg-[#080a0f]/95 backdrop-blur-md"
+        className="sticky top-0 z-50 backdrop-blur-md border-b"
+        style={{ borderColor: `${faction.color}33`, backgroundColor: '#080a0f', boxShadow: `0 1px 24px ${faction.color}14` }}
       >
         <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3 sm:px-6">
           <Link
@@ -345,25 +392,32 @@ export default async function FactionPage({ params }: { params: Promise<{ slug: 
 
       {/* ── Hero header ────────────────────────────────────────────────────── */}
       <header
-        className="relative overflow-hidden py-20 px-4"
+        className="crack-bg relative overflow-hidden py-20 px-4 z-10"
         style={{
-          background: `linear-gradient(180deg, ${faction.color}18 0%, transparent 70%)`,
-          borderBottom: `1px solid ${faction.color}33`,
+          background: `linear-gradient(180deg, ${faction.color}22 0%, transparent 70%)`,
+          borderBottom: `1px solid ${faction.color}44`,
         }}
       >
-        {/* Decorative glow */}
+        {/* Radial glow blob */}
         <div
-          className="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full blur-3xl opacity-10 pointer-events-none"
+          className="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full blur-3xl opacity-15 pointer-events-none"
           style={{ backgroundColor: faction.color }}
         />
+        {/* Reiatsu ribbon bottom edge */}
+        <div className="absolute bottom-0 left-0 right-0 h-px reiatsu-ribbon opacity-40" />
+
         <div className="relative z-10 mx-auto max-w-4xl text-center">
-          <div className="mb-4 text-6xl">{faction.icon}</div>
+          <div className="mb-4 text-6xl drop-shadow-lg">{faction.icon}</div>
           <h1
-            className="font-display text-[clamp(2.2rem,6vw,4rem)] mb-4"
-            style={{ color: faction.color }}
+            className="font-display text-[clamp(2.2rem,6vw,4rem)] mb-3"
+            style={{ color: faction.color, textShadow: `0 0 40px ${faction.color}50` }}
           >
             {faction.name}
           </h1>
+          {/* Zanpakuto release command / faction quote */}
+          <p className="font-body italic text-[0.9rem] mb-3" style={{ color: `${faction.color}99` }}>
+            {faction.quote}
+          </p>
           <p className="font-body text-lg text-[#7a8aaa] max-w-xl mx-auto">{faction.tagline}</p>
           <Link
             href="/#factions"

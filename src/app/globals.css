@@ -83,4 +83,56 @@
     z-index: 0;
     opacity: 0.3;
   }
+
+  /* Kanji watermark pulse */
+  .kanji-pulse {
+    animation: reiatsupulse 5s ease-in-out infinite;
+  }
+
+  /* Faction card reiatsu glow via CSS variable --fc */
+  .faction-card {
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+  }
+  .faction-card:hover {
+    box-shadow: 0 0 28px var(--fc, transparent), inset 0 0 20px color-mix(in srgb, var(--fc, transparent) 40%, transparent);
+    border-color: var(--fc-border, #2a3450) !important;
+  }
+}
+
+/* ── Animations ─────────────────────────────────────────────────────────────── */
+
+@keyframes reiatsupulse {
+  0%, 100% { opacity: 0.03; }
+  50%       { opacity: 0.09; }
+}
+
+@keyframes reiatsuflow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Reiatsu ribbon: animated gradient used on hero accent lines etc. */
+.reiatsu-ribbon {
+  background: linear-gradient(-45deg, #e74c3c, #8e44ad, #3498db, #d4af37);
+  background-size: 400% 400%;
+  animation: reiatsuflow 10s ease infinite;
+}
+
+/* Hollow mask crack — subtle SVG crack overlay */
+.crack-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Cg stroke='white' stroke-linecap='round' fill='none' opacity='0.06'%3E%3Cpath d='M300 200 L330 155 L355 100 L370 40' stroke-width='1.2'/%3E%3Cpath d='M300 200 L275 165 L250 120 L230 60' stroke-width='0.8'/%3E%3Cpath d='M300 200 L340 230 L390 270 L440 320' stroke-width='0.9'/%3E%3Cpath d='M300 200 L260 235 L210 280 L160 340' stroke-width='0.7'/%3E%3Cpath d='M330 155 L360 140 L400 145' stroke-width='0.6'/%3E%3Cpath d='M260 235 L230 250 L195 245' stroke-width='0.5'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.5;
 }

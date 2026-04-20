@@ -18,6 +18,8 @@ export interface FactionDetail {
   id: string;
   name: string;
   icon: string;
+  kanji: string;
+  quote: string;
   color: string;
   tagline: string;
   sections: { title: string; items: { label: string; value?: string }[] }[];
@@ -30,6 +32,8 @@ export const FACTIONS: FactionDetail[] = [
     id: "shinigami",
     name: "Shinigami",
     icon: "⚔️",
+    kanji: "死神",
+    quote: "保護と均衡 · Guard the balance between worlds",
     color: "#5dade2",
     tagline: "Soul Society guardians. Master Zanjutsu, Kido, and unlock Shikai & Bankai.",
     sections: [
@@ -127,6 +131,8 @@ export const FACTIONS: FactionDetail[] = [
     id: "hollow",
     name: "Hollow",
     icon: "💀",
+    kanji: "虚",
+    quote: "食らう · Devour, evolve, ascend to Vasto Lorde",
     color: "#e74c3c",
     tagline: "Devour souls to evolve from Weak Hollow to fearsome Arrancar. Challenge the Espada.",
     sections: [
@@ -240,6 +246,8 @@ export const FACTIONS: FactionDetail[] = [
     id: "quincy",
     name: "Quincy",
     icon: "🏹",
+    kanji: "滅却師",
+    quote: "聖なる矢 · Purge all Hollow with sacred fire",
     color: "#3498db",
     tagline: "Reishi-manipulating hunters. Unlock Vollständig and rise through the Wandenreich.",
     sections: [
@@ -288,6 +296,8 @@ export const FACTIONS: FactionDetail[] = [
     id: "fullbringer",
     name: "Fullbringer",
     icon: "👊",
+    kanji: "完現術",
+    quote: "完現術 · Awaken the soul within all things",
     color: "#e67e22",
     tagline: "Humans wielding Hollow Reiryoku. Physical combat specialists with powerful Fullbring.",
     sections: [
@@ -343,6 +353,8 @@ export const FACTIONS: FactionDetail[] = [
     id: "vaizard",
     name: "Vaizard",
     icon: "🎭",
+    kanji: "仮面",
+    quote: "仮面の力 · Wield both the mask and the blade",
     color: "#9b59b6",
     tagline: "Shinigami with inner Hollow power. 33% chance gene — unlock the Mask for devastating bonuses.",
     sections: [
@@ -397,6 +409,8 @@ export const FACTIONS: FactionDetail[] = [
     id: "bount",
     name: "Bount",
     icon: "🌊",
+    kanji: "バウント",
+    quote: "魂を喰らえ · Feed upon the wandering souls",
     color: "#1abc9c",
     tagline: "Artificially created immortals. Summon elemental dolls and fuse for ultimate power.",
     sections: [
@@ -428,6 +442,8 @@ export const FACTIONS: FactionDetail[] = [
     id: "sinner",
     name: "Sinner",
     icon: "🔥",
+    kanji: "咎人",
+    quote: "鎖の解放 · Break the chains of Muken",
     color: "#e74c3c",
     tagline: "Requires 1 rebirth. Hell-bound souls — Speed, Tank, or Ranged paths await in the depths.",
     sections: [
