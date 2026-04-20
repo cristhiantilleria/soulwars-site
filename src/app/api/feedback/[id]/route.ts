@@ -13,6 +13,10 @@ export async function DELETE(
   }
 
   const { id } = await params;
+
+  // Probe request — confirms correct password without touching DB
+  if (id === '__probe') return NextResponse.json({ error: 'Not found' }, { status: 404 });
+
   const { error } = await getSupabase().from('feedback').delete().eq('id', id);
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
