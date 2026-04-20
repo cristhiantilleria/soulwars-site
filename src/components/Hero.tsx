@@ -2,12 +2,13 @@
 import { useEffect, useRef } from "react";
 
 const NAV_LINKS = [
-  { href: "#factions", label: "Factions" },
-  { href: "#stats",    label: "Stats & Formulas" },
-  { href: "#mobs",     label: "Mob Levels" },
-  { href: "#perks",    label: "Perk System" },
-  { href: "#builds",   label: "Build Maker" },
-  { href: "#tips",     label: "New Players" },
+  { href: "#overview",  label: "Game Overview" },
+  { href: "#leveling",  label: "Leveling Guide" },
+  { href: "#factions",  label: "Factions" },
+  { href: "#stats",     label: "Stats & Formulas" },
+  { href: "#mobs",      label: "Mob Levels" },
+  { href: "#perks",     label: "Perk System" },
+  { href: "#builds",    label: "Build Maker" },
 ];
 
 export default function Hero() {

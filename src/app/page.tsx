@@ -2,6 +2,9 @@ import NewsTicker      from "@/components/NewsTicker";
 import Navigation      from "@/components/Navigation";
 import Hero            from "@/components/Hero";
 import WipeBanner      from "@/components/WipeBanner";
+import GameOverview    from "@/components/GameOverview";
+import GuideNav        from "@/components/GuideNav";
+import LevelingGuide   from "@/components/LevelingGuide";
 import FactionsSection from "@/components/FactionsSection";
 import StatsSection    from "@/components/StatsSection";
 import MobsSection     from "@/components/MobsSection";
@@ -18,12 +21,15 @@ export default function Home() {
       <main>
         <Hero />
         <WipeBanner />
+        <GameOverview />
+        <GuideNav />
+        <TipsSection />
+        <LevelingGuide />
         <FactionsSection />
         <StatsSection />
         <MobsSection />
         <PerksSection />
         <BuildMaker />
-        <TipsSection />
       </main>
       <Footer />
     </>

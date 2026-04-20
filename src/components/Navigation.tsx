@@ -3,14 +3,15 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 const LINKS = [
-  { href: "#factions", label: "Factions" },
-  { href: "#stats",    label: "Stats" },
-  { href: "#mobs",     label: "Mobs" },
-  { href: "#perks",    label: "Perks" },
-  { href: "#builds",   label: "Build Maker" },
-  { href: "#tips",     label: "New Players" },
-  { href: "/updates",  label: "Updates" },
-  { href: "/feedback", label: "Feedback" },
+  { href: "#overview",  label: "Overview" },
+  { href: "#leveling",  label: "Leveling" },
+  { href: "#factions",  label: "Factions" },
+  { href: "#stats",     label: "Stats" },
+  { href: "#mobs",      label: "Mobs" },
+  { href: "#perks",     label: "Perks" },
+  { href: "#builds",    label: "Builds" },
+  { href: "/updates",   label: "Updates" },
+  { href: "/feedback",  label: "Feedback" },
 ];
 
 export default function Navigation() {
