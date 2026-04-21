@@ -1,0 +1,901 @@
+# Soul Wars Community Wiki — Full Content
+# Game: Bleach: Soul Wars (BYOND MMO)
+# Guide Version: 3.0 | Wipe: April 18th 2026
+# Source: https://soulwars-site.vercel.app | Discord: discord.gg/9T5gPBe
+
+═══════════════════════════════════════
+GAME OVERVIEW
+═══════════════════════════════════════
+Free browser BYOND MMO set in the Bleach universe. Choose 1 of 7 factions,
+train stats, master skill trees, win events, and fight for spiritual dominance.
+
+Key features:
+- 7 factions: Shinigami, Hollow/Arrancar, Quincy/Wandenreich, Fullbringer, Vaizard, Bount, Sinner
+- Event-driven progression (Shikai/Bankai/Resurrecciones all require event wins)
+- Rebirth system for prestige SP bonuses and new faction unlocks
+- 16 stat points per level (ATK/DEF/REI/DEX); Spirit Level adds +30 all stats (max 10x)
+- Perk slots: 9 minor, 3 major, 1 ultimate — each with 3 ranks
+
+v3.0 Changes (April 2026): Race skill trees (~200 nodes), Wandenreich as own faction,
+Alchemy & Mining professions, Faction War Map PvP zone, Squad 0, all Quincy Schrifts added,
+full balance transparency. 130k+ lines of code changed.
+
+═══════════════════════════════════════
+STATS
+═══════════════════════════════════════
+ATK: Normal attack damage (max/min), Normal/Precision Crit damage, player HP
+DEF: Damage reduction per point, Crit damage reduction. Hard cap: 70% reduction.
+REI: Reiatsu attack damage (max/min), Reiatsu Crit damage, Reiryoku & HP (smaller).
+DEX: Crit hit rate, Accuracy, Avoidability.
+Spirit Level: +30 all stats per level, max 10 levels (+300 total). Buy with Spirit Dust at Artemis.
+
+Currencies: EP (events) | SD/Spirit Dust (mobs→Spirit Level, resets) | SE (PvP kills→gear)
+GP (guild wars) | SP (premium cash) | Hell Points (rebirth) | PvP Souls/Hell Souls (gear leveling)
+
+═══════════════════════════════════════
+LEVELING GUIDE
+═══════════════════════════════════════
+Lv1-25 Early: Tutorial quest, Class event (~8 free levels), Delinquents→Hollows, join faction ASAP
+Lv25-60 Mid: Unlock Shikai(Shin)/stay VL(Hollow), group farm, train passives, move to Hueco Mundo
+Lv60-90 Late: Get 1 event win (mandatory for major unlocks), finalize stat build, Lt at Lv65
+Lv90-130 End: Limit Release (Lt/Captain only), Captain rank (Bankai+Lv90+beat Captain), Ultimate perk Lv120
+Rebirth: Resets Lv→1, keeps perks, +15 SP per level above 90, xEXP×2.5 after 1st RB, unlocks Sinner
+
+═══════════════════════════════════════
+FACTIONS
+═══════════════════════════════════════
+
+─────────────────────
+⚔️ SHINIGAMI (死神)
+ + f.quote + 
+Soul Society guardians. Master Zanjutsu, Kido, and unlock Shikai & Bankai.
+
+  How to Join:
+  - Die as a human → go Left in Dangai
+  - Reach Soul Society → head to the Academy
+  - Talk to Renji to become a trainee
+  - Join a Squad (recruiter north of Renji)
+
+  Shikai Requirements:
+  - Level 25: 
+  - 40 Zanpaktou Understanding (press M)
+  - 50 Zanjutsu passive
+
+  Bankai Requirements:
+  - Level 60+ · 1 Event Win
+  - 100 Zanpakuto Understanding
+  - 100 Zanjutsu + 35 Hakuda passive
+  - 30 Spirit Mastery · 100 Shikai Mastery
+
+  Shunko:
+  - Level 30 · 110 Hakuda Mastery
+  - 15 Backstep Mastery · 65 Flash Step Mastery
+  - 40 Kido Mastery
+  - Speak with Yoruichi near Squad 2 barracks
+  - Squad 2 members learn additional exclusive Shunko skills
+
+  Noble Families:
+  - Kuchiki: +30 Kido Density Cap, +50% Kido Density & Mastery Training, +40 Spirit Mastery Cap
+  - Komamura: +12% Defence
+  - Shihoin: 1.15x Back Dmg, -50% Shunko Drain, +400% Shunko Training, +1 Move Speed
+  - Shiba: -50% All Reiryoku Drains
+  - Unohana: +50% Healing, +35% Regen Rate
+
+  Limit Release:
+  - Learned at Level 70 (Lt or Captain only)
+  - Boosts stats by lvl ÷ 260
+  - At Lv130 = +50% all stats
+
+  Ranks:
+  - Lieutenant: Level 65
+  - Captain: Know Bankai + Level 90 + defeat current Captain
+  - Limit Release: Level 70 (Lt/Captain only)
+  - Only 1 Captain and 1 Lieutenant per squad
+
+  SQUADS & DIVISIONS:
+  [DEFENSE] Squad 1:
+    - +20% Atk/Rei
+    - +24% Def
+    Captain: Access to 3 Sub-Captain squad perks (Squads 2, 3, 6, 7, 11)
+  [OFFENSE] Squad 2:
+    - +20% Critical Damage
+    - 1.15× Back Damage
+    - +50 Hakuda Cap
+    - +50% Hakuda Training
+    - +100% Shunpo Training
+    - -50% Shunpo Drain
+    - +2 Move Speed
+    Captain: Promote / Demote own Lieutenant
+  [OFFENSE] Squad 3:
+    - +10% Damage Dealt
+    Captain: +15% Damage Dealt
+  [UTILITY] Squad 4:
+    - +70% Reiryoku Regen
+    - Exclusive AoE Heal skill
+    Captain: Promote / Demote own Lieutenant
+  [FARMING] Squad 5:
+    - +15% Leveling & Passive EXP
+    - +5% Atk/Rei
+    - +10% Def
+    - +25 Hakuda/Zanjutsu/Kido Density Cap
+    - +15 Toughness Cap
+    Captain: Promote / Demote own Lieutenant
+  [UTILITY] Squad 6:
+    - +50% Kido Training
+    - +100% Flash Training
+    - +10% Rei
+    - +40 Kido Density Cap
+    Captain: Promote / Demote own Lieutenant
+  [DEFENSE] Squad 7:
+    - +50% Toughness Training
+    - +12.5% Def
+    - +30 Toughness Cap
+    Captain: Promote / Demote own Lieutenant
+  [DEFENSE] Squad 8:
+    - +50% Reiryoku Drain
+    - +40% HP/Reiryoku Regen
+    - +5% Atk/Rei
+    - +10% Def
+    Captain: Promote / Demote own Lieutenant
+  [OFFENSE] Squad 9:
+    - +100 Zanjutsu Cap
+    - +8% Atk
+    Captain: Promote / Demote own Lieutenant
+  [FARMING] Squad 10:
+    - +100% Passive Training
+    - +35 Zanjutsu Cap
+    Captain: Promote / Demote own Lieutenant
+  [OFFENSE] Squad 11:
+    - +50% Zanjutsu Training
+    - +50 Zanjutsu Cap
+    - +20 Toughness Cap
+    - +10% Atk
+    - +8% Def
+    Captain: Promote / Demote own Lieutenant
+  [FARMING] Squad 12:
+    - +80% Passive EXP
+    - +20% Regen Rate
+    - Poison-on-Hit
+    Captain: Promote / Demote own Lieutenant
+  [UTILITY] Squad 13:
+    - +6% Atk/Rei/Def
+    - +1% Atk/Rei/Def per Squad 13 member online
+    Captain: Promote / Demote own Lieutenant
+  [UTILITY] Kido Corps:
+    - Kido cast time halved
+    - +40 Kido Density Cap
+    - +40% Kido Density Training
+    - +75% Kido Mastery Training
+    Captain: Kido is cast instantly
+
+─────────────────────
+💀 HOLLOW (虚)
+ + f.quote + 
+Devour souls to evolve from Weak Hollow to fearsome Arrancar. Challenge the Espada.
+
+  How to Join:
+  - Die as a human → go Right in Dangai
+  - Or get killed by a Hollow
+
+  Evolution Path:
+  - Weak: 50 devours
+  - Medium: 75 devours
+  - Strong: 120 devours
+  - Menos Grande: 1,500–2,500 devours
+  - Adjucha: 5,000–7,000 devours
+  - Vasto Lorde: 70,000–74,000 devours
+
+  Arrancar Unlock:
+  - Talk to Aizen in Las Noches after Menos Grande+
+  - Resurreccion requires Level 40
+  - Train Zanjutsu as Vasto — much faster
+
+  Arrancar Perks:
+  - Greater Power: +15% base stats
+  - Greater Regeneration: +50% Regeneration
+
+  HOLLOW EVOLUTION PERKS:
+  (Choose one perk when you reach each stage.)
+  [OFFENSE] Weak Hollow:
+    - +3% Crit Chance
+    - +7.5% Crit Damage
+    - +5% Melee Damage
+    - -2% Damage Taken
+  [OFFENSE] Medium Hollow:
+    - +3% Crit Chance
+    - +7.5% Crit Damage
+    - +5% Melee Damage
+    - +5% Skill Damage
+    - -2% Damage Taken
+  [OFFENSE] Strong Hollow:
+    - +5% Crit Chance
+    - +10% Crit Damage
+    - +7% Melee Damage
+    - +7% Skill Damage
+    - -3% Damage Taken
+    - +5% Both Melee & Skill Damage
+  [UTILITY] Menos Grande:
+    - +50% Cero Damage
+    - Cero slows targets for 1.5s
+    - 0 Cero charge time + 100% Cero projectile speed
+  [DEFENSE] Adjucha:
+    - +30% Crit Damage, -20 Defense
+    - +15% dmg on next attack after back hit
+    - 20% less Crit Damage taken
+    - 50% resistance against slows
+    Note: Adjucha perks are currently disabled in-game
+  [OFFENSE] Vasto Lorde:
+    - -7% Damage Taken (but +25% more back-hit damage against you)
+    - +7% Damage Dealt (but +7% more Damage Taken)
+
+  TYPES & STAT BOOSTS:
+  [OFFENSE] Grimmjow:
+    - +96% Atk, +24% Def/Dex
+    Hogyoku: +150% Atk, +25% Def, +40% Dex (also +40% Dex on hit for 1s)
+  [OFFENSE] Nel:
+    - +96% Atk, +24% Def/Dex
+  [DEFENSE] Nnoitra:
+    - +72% Def, +24% Dex
+    Hogyoku: +100% Def/Dex
+  [DEFENSE] Yammy:
+    - +96% Atk, +60% Def, +40% HP
+    Enraged / Hogyoku: Enraged: +144% Atk · Hogyoku: +120% Def, +40% HP
+  [OFFENSE] Charlotte:
+    - +180% Atk, +120% Def
+  [OFFENSE] Del Toro:
+    - +96% Atk, +24% Def/Dex
+  [UTILITY] Stark (Guns):
+    - +160% Rei, +24% Dex
+    Swords / Hogyoku: Swords: +220% Rei, +72% Dex · Hogyoku: +60% Def, +150% Rei, +100% Dex
+  [UTILITY] Ulquiorra:
+    - +30% Def, +96% Rei, +24% Dex
+    Segunda Etapa / Hogyoku: Segunda: +60% Def, +120% Rei, +48% Dex · Hogyoku: +60% Def, +150% Rei, +100% Dex
+  [UTILITY] Barragan:
+    - +96% Rei
+    Hogyoku: +150% Rei, Def boosted by +100% Rei
+  [UTILITY] Volcanica:
+    - +30% Def, +96% Rei, +24% Dex
+    Hogyoku: +60% Def, +150% Rei, +100% Dex
+  [UTILITY] Harribel:
+    - +96% Rei
+
+  ESPADA RANKS:
+  [OFFENSE] Espada Leader:
+    - Level 120
+    - +13.5% Atk/Rei
+    - +12.5% Def
+  [OFFENSE] Espada 1:
+    - Level 115
+    - +12.5% Atk/Rei
+    - +11.5% Def
+  [OFFENSE] Espada 2:
+    - Level 110
+    - +11.5% Atk/Rei
+    - +10.5% Def
+  [OFFENSE] Espada 3:
+    - Level 105
+    - +10.5% Atk/Rei
+    - +9.5% Def
+  [OFFENSE] Espada 4:
+    - Level 100
+    - +9.5% Atk/Rei
+    - +8.5% Def
+  [OFFENSE] Espada 5:
+    - Level 95
+    - +8.5% Atk/Rei
+    - +7.5% Def
+  [OFFENSE] Espada 6:
+    - Level 90
+    - +7.5% Atk/Rei
+    - +6.5% Def
+  [OFFENSE] Espada 7:
+    - Level 80
+    - +6.5% Atk/Rei
+    - +5.5% Def
+  [OFFENSE] Espada 8:
+    - Level 75
+    - +5.5% Atk/Rei
+    - +4.5% Def
+  [OFFENSE] Espada 9:
+    - Level 70
+    - +4.5% Atk/Rei
+    - +3.5% Def
+  [OFFENSE] Espada 10:
+    - Level 65
+    - +3.5% Atk/Rei
+    - +2.5% Def
+
+  FRACCION PERKS:
+  [FARMING] Fraccion 1 — Solitude:
+    - +10% base stats
+    - +10% passive experience
+    - +10% experience
+    Espada Perk: +15% base stats, +20% passive EXP, +20% EXP
+  [UTILITY] Fraccion 2 — Age:
+    - Enemies within 80px cannot Shunpo
+    Espada Perk: Force enemies to walk for 0.5s on hit (1.5s CD)
+  [OFFENSE] Fraccion 3 — Sacrifice:
+    - Gain 30% HP and Reiryoku from every kill
+    - Every 1% HP missing → +0.3% damage
+    Espada Perk: Every 1% HP missing → +0.4% damage
+  [DEFENSE] Fraccion 4 — Emptiness:
+    - +30% Parry damage
+    - +50% Health Regen Rate
+    Espada Perk: +50% Parry damage
+  [DEFENSE] Fraccion 5 — Despair:
+    - Toughness reduces ~0.4% dmg/level (vs 0.35% standard)
+    - +30% Defence stat
+    Espada Perk: Toughness reduces ~0.45% dmg/level
+  [OFFENSE] Fraccion 6 — Destruction:
+    - +3 Speed for 4.5s every time you deal damage
+    Espada Perk: +12% Attack boost
+  [UTILITY] Fraccion 7 — Intoxication:
+    - Create 10 Shunpo clones every time you Shunpo
+    Espada Perk: Always has +2 Move Speed
+  [DEFENSE] Fraccion 8 — Madness:
+    - +10% damage converted to Lifesteal
+    Espada Perk: +15% damage converted to Lifesteal
+  [FARMING] Fraccion 9 — Greed:
+    - +20% experience
+    - +50% passive experience
+    Espada Perk: +30% experience, +70% passive experience
+  [OFFENSE] Fraccion 10 — Rage:
+    - Every 1% HP missing → +0.5% more damage
+    Espada Perk: Every 1% HP missing → +0.65% more damage
+
+─────────────────────
+🏹 QUINCY (滅却師)
+ + f.quote + 
+Reishi-manipulating hunters. Unlock Vollständig and rise through the Wandenreich.
+
+  How to Join:
+  - Be Human → talk to Quincy Elder
+  - Elder is in Urahara's Shop or Quincy Village
+
+  Key Unlocks:
+  - Kojaku Bow: Level 10
+  - Web Bow: Lv30, 3 Event Wins, 25 Bow/Reishi
+  - Seele Schneider: Level 25 + 40 Reishi Control
+  - Vollständig: Lv65, 90 Reishi + 90 Bow Mastery
+
+  Vollständig Boosts:
+  - Standard: +72% def, +168% rei, +36% dex
+  - High-tier: +84% def, +180% rei
+  - Pure Rei: +180% rei
+
+  WANDENREICH RANKS:
+  [OFFENSE] Emperor:
+    - Level 122
+  [OFFENSE] Crown Prince:
+    - Level 120
+    - +14% Rei
+  [OFFENSE] Grandmaster:
+    - Level 110
+    - +12% Rei
+  [OFFENSE] SS Leader:
+    - Level 100
+    - +10% Rei
+
+─────────────────────
+👊 FULLBRINGER (完現術)
+ + f.quote + 
+Humans wielding Hollow Reiryoku. Physical combat specialists with powerful Fullbring.
+
+  How to Join:
+  - Level to 15 as a Human
+  - Find Ginjo in his castle
+  - 100 Hollow kills to unlock the class
+
+  Advanced Fullbring:
+  - Level 55
+  - 500 Hollow kills
+  - 80 Spirit Mastery
+  - 100 Fullbring Mastery
+
+  TYPES & STAT BOOSTS:
+  [OFFENSE] Ichigo / Sado / Ginjo:
+    - Fullbring: +60% Atk, +24% Def/Dex
+    Advanced: +90% Atk, +36% Def/Dex
+  [UTILITY] Yukio / Inoue:
+    - Fullbring: +96% Rei
+    Advanced: +144% Rei
+
+  XCUTION RANKS:
+  [OFFENSE] Xcution Leader:
+    - Level 120
+    - +25% Atk/Def/Rei
+  [OFFENSE] Agent 1:
+    - Level 110
+    - +24% Atk/Def/Rei
+  [OFFENSE] Agent 2:
+    - Level 100
+    - +23% Atk/Def/Rei
+  [OFFENSE] Agent 3:
+    - Level 90
+    - +21% Atk/Def/Rei
+  [OFFENSE] Agent 4:
+    - Level 80
+    - +20% Atk/Def/Rei
+  [OFFENSE] Agent 5:
+    - Level 70
+    - +18% Atk/Def/Rei
+  [UTILITY] Agent 6:
+    - Level 60
+  [UTILITY] Agent 7:
+    - Level 50
+  [UTILITY] Agent 8:
+    - Level 40
+
+─────────────────────
+🎭 VAIZARD (仮面)
+ + f.quote + 
+Shinigami with inner Hollow power. 33% chance gene — unlock the Mask for devastating bonuses.
+
+  How to Unlock:
+  - 33% random gene chance on character creation
+  - Reach Level 30 → find Shinji (SW corner of Earth)
+  - Need 250 Hollow kills
+  - Reroll gene with Event Points
+
+  Mask Progression:
+  - Cero: 5 Spirit Mastery
+  - Bala: 250 Mask Time + 25 Spirit Mastery
+  - Gran Rey Cero: 500 Mask Time + 50 Spirit Mastery
+  - Vasto Mode: 10 Hogyoku Captures + 750 Mask Time + 1 Rebirth
+
+  Mask Mechanics:
+  - All masks grant +15% Def base (+30% in Vasto)
+  - 1 mastery = 1 second of mask time
+  - Cap: 1000 mastery = 1000s normal / 500s Vasto
+  - Train mask by hitting mobs while masked
+
+  MASK TYPES & BONUSES:
+  [UTILITY] Ichigo:
+    - +2 Move Speed
+    Vasto Form: +3 Move Speed, +15% Dex
+  [OFFENSE] Kensei:
+    - +20% Melee Damage
+    Vasto Form: +30% Melee Damage
+  [OFFENSE] Lisa:
+    - +5% Crit Chance
+    Vasto Form: +10% Crit Chance
+  [OFFENSE] Hiyori:
+    - +10% Crit Damage
+    Vasto Form: +15% Crit Damage
+  [DEFENSE] Shinji:
+    - +65% Def
+    Vasto Form: +70% Def
+  [UTILITY] Hachigen:
+    - 30% Reiatsu converted to Kido damage
+    - -4 Kido Cast Time
+    Note: No separate Vasto boost listed
+  [UTILITY] Love:
+    - +40% Reiatsu
+    Vasto Form: +60% Reiatsu
+
+─────────────────────
+🌊 BOUNT (バウント)
+ + f.quote + 
+Artificially created immortals. Summon elemental dolls and fuse for ultimate power.
+
+  How to Join:
+  - Same unlock path as Fullbringer
+  - Same Xcution rank system as Fullbringers
+  - Fused Form grants +2 Move Speed
+
+  TYPES & STAT BOOSTS:
+  [UTILITY] Guhl / Gunther (Water):
+    - Fullbring: +96% Rei
+    Advanced: +144% Rei
+  [UTILITY] Goethe (Fire):
+    - Fullbring: +96% Rei
+    True Form: +170% Rei, +40% Def/Dex
+  [DEFENSE] Dalk (Metal):
+    - Fullbring: +60% Def
+    True Form: +150% Def, +40% Dex
+
+─────────────────────
+🔥 SINNER (咎人)
+ + f.quote + 
+Requires 1 rebirth. Hell-bound souls — Speed, Tank, or Ranged paths await in the depths.
+
+  Requirements:
+  - Must have at least 1 Rebirth
+  - Go to Hell and find the NPC
+  - Uses Hollow skill tree
+
+  SINNER TYPES:
+  [UTILITY] Speed Sinner:
+    - High-mobility playstyle
+    - Flash-step focused combat
+  [DEFENSE] Tank Sinner:
+    - High durability build
+    - Focus on absorbing damage
+  [OFFENSE] Ranged Sinner:
+    - Ranged Cero-based attacks
+    - Keep distance and chip damage
+
+  HELL HIERARCHY:
+  [OFFENSE] Hell Overlord:
+    - Level 120
+  [OFFENSE] Hell Ruler 5:
+    - Level 115
+  [OFFENSE] Hell Ruler 4:
+    - Level 110
+  [OFFENSE] Hell Ruler 3:
+    - Level 105
+  [OFFENSE] Hell Ruler 2:
+    - Level 100
+  [OFFENSE] Hell Ruler 1:
+    - Level 95
+
+═══════════════════════════════════════
+SKILL TREES
+═══════════════════════════════════════
+1 skill point per 4 levels (up to Lv100) + from achievements. Augments branch off skills.
+Masteries: choose ONE at Lv40 — permanent specialisation.
+
+─── SHINIGAMI ───
+  Active Skills:
+  - Shakkahō: Active skill: fire a concentrated sphere of reiryoku at your target.
+      > Shakkahō — Rapid: Augment: casts two Shakkaho blasts (second after 0.15s)
+      > Shakkahō — Blazing: Augment: applies a burn dealing 50% of Shakkaho damage over 6 seconds.
+  - Sōkatsui: Active skill: unleash a wave of blue spiritual flames.
+      > Sōkatsui — Slow: Augment: Sōkatsui slows enemies hit for 2 seconds with a level 1 slow.
+      > Sōkatsui — Rapid: Augment: Sōkatsui casts two Sōkatsui blasts (second after 0.15s)
+  - Sōren Sōkatsui: Active skill: dual-layered Sōkatsui for amplified devastation.
+      > Sōren Sōkatsui — Rapid: Augment: Sōren Sōkatsui casts two Sōkatsui blasts (second after 0.15s)
+      > Sōren Sōkatsui — Blazing: Augment: Sōren Sōkatsui applies a burn dealing 50% of extra damage over 6 seconds.
+      > Sōren Sōkatsui — Fast: Augment: Sōren Sōkatsui travels twice as fast
+  - Kurohitsugi: Active skill: Creates a black coffin around you target dealing heavy damage.
+      > Kurohitsugi — Focused: Augment: Triples in size.
+      > Kurohitsugi — Stunning: Augment: stuns all enemies hit for 2 seconds.
+      > Kurohitsugi — Silenced: Augment: Kurohitsugi has a 30% chance to silence targets hit for 3 seconds.
+  - Senju Kōten Taihō: Active skill: A cone of extremely powerful reiatsu blasts.
+      > Senju Kōten Taihō — Chain Reaction: Augment: creates an explosive chain reaction, all enemies hit explode enemies within 2 tiles.
+      > Senju Kōten Taihō — Flashing: Augment: the distance and movement speed are doubled.
+      > Senju Kōten Taihō — Piercing: Augment: projectiles now pierce objects, mobs, and walls.
+  - Ittō Kasō: Active skill: sacrifice to conjure an immense pillar of flame.
+      > Ittō Kasō — Focused: Augment: triples the range of Itto Kasō catching a target.
+      > Ittō Kasō — Damage: Augment: increases the damage of Itto Kasō by 50%.
+      > Ittō Kasō — Wildfire: Augment: spreads an Itto Kasō to all enemies within 2 tiles of the original target.
+      > Ittō Kasō — Silencing: Augment: Itto Kasō has a 30% chance to silence targets hit for 3 seconds.
+  - Sekienton: Active skill: create a concealing cloud of smoke to obscure sight.
+      > Sekienton — Shrouding: Augment: inside Sekienton gain +50% evasion but the cloud's opacity is reduced by 50%.
+      > Sekienton — Instincts: Augment: falling below 25% HP spawns a 3s Sekienton (30s cooldown).
+  - Tenran: Active skill: conjure a spiraling wind blast to knock foes back.
+      > Tenran — Seiran: Augment: Tenran now has a 30% chance to silence targets hit for 3s.
+  - Dankū: Active skill: raise a barrier that blocks incoming projectiles.
+      > Dankū — Reflective: Augment: deflect the first projectile that hits Danku, then dissipate the barrier.
+      > Dankū — Trained: Augment: doubles the width of Danku.
+  - Hainawa: Active skill: restrain a target with a rope of yellow reiryoku.
+  - Geki: Active skill: bind foes with crimson light to immobilize them.
+      > Geki — Focused: Augment: extends Geki range by 2 tiles but increases cast time by 0.4s.
+      > Geki — Potency: Augment: increases Geki stun duration by 0.75 seconds.
+
+  Passives:
+  - Wind Stance: Passive: unlock the Wind stance as a fourth Zanjutsu stance. Landing F/G reduces flash step cooldown by 0.3s
+  - Wind Step: Passive: Knocks all enemies within 2 tiles of the user back. Any other shunpo effects will apply first.
+  - Wind Slash: Passive: All enemies within 1 tiles are slashed when you shunpo.
+  - Energy Waves: Passive: G attack launches a 1 tile wave of energy that has a 4 tile distance.
+  - Piercing Waves: Passive: Energy Waves now pierce enemies and walls and has a 6 tile distance.
+  - Wind Fury: Passive: Wind Slash now has a 3 tile radius.
+  - Precision Hits: Passive: Critical strikes pierce 10% of defence.
+  - Duelist Movement: Passive: landing an F/G attack increases movement speed by +2 for 2s. does not stack.
+  - Adaptive Kidō: Passive: offensive Kido spells scale 50% with Reiatsu and 50% with of your highest stat.
+  - Empowered Star Combo: Passive: Star Combo deals +20% damage (F then G slash combo).
+  - Nimaiya Training: Passive: successive F/G hits deal +10% of damage as true damage.
+  - Hakaze Parry: Passive: Removes the projectile parry cooldown, parry now reduces projectile damage by 40% ontop of the normal parry reduction.
+  - Kidō Specialist: Passive: CC Kido gains +0.5s duration and all Kido have +10% damage
+
+  Masteries (choose ONE at Level 40):
+  - Zanjutsu Mastery [Lv40]: Damage abilities +6% damage, healing +10%, shielding +10%, costs -10%.
+  - Battōjutsu Mastery [Lv40]: Landing F/G attacks grants +5% crit and +25% attack speed for 3 swings (14s CD).
+  - Ryōdan Mastery [Lv40]: After 3 hits in 2s, deal ghost damage = 1.5x F attack and heal 20% (12s CD).
+  - Shukuchi Mastery [Lv40]: Shunpo within 5 tiles grants +2% crit/+1% attack stacks (max 5, 15s duration).
+
+─── HOLLOW/ARRANCAR ───
+  Active Skills:
+  - Roar: Active skill: unleash a concussive roar that knocks foes away.
+      > Roar — Blast: Augment: Instead of spawning knockback waves in all directions, Roar shoots only in the forward direction, but has twice the range.
+      > Roar — Empowered: Augment: Roar has 20% increased Knockback force (or Pull force if Taunting Roar).
+      > Roar — Taunting: Augment: Roar, instead of pushing targets away, now pulls them toward user. Pull duration is 1s.
+  - Acid Touch: Active skill: corrode foes with acidic reishi upon contact.
+      > Acid Touch — Spew: Augment: Acid Touch becomes a ranged projectile.
+      > Acid Touch — Heal: Augment: Acid Touch heals an ally for the damage that Acid Touch would do. Does not heal self.
+  - Weak Smash: Active skill: slam the ground to disrupt and stun enemies.
+      > Weak Smash — Strong: Augment: Weak Smash but slightly larger AOE size, but the stun duration is reduced by 0.25s.
+      > Weak Smash — Slowing: Augment: Instead of a stun, Weak Smash now only slows targets by 35%, BUT moves with the player for 3s.
+      > Weak Smash — Brittling: Augment: Instead of a stun, the smash lands a brittle debuff on the target, which makes them take 12% increased damage for 4s.
+      > Weak Smash — Directional: Augment: Instead of the weak smash stun spawning on the user's center, it now spawns infront of the user.
+  - Bala: Active skill: fire a swift compressed spiritual bullet.
+      > Bala — Exploiting: Augment: If a target is in a CC (slowed, stunned, poisoned, etc.), Bala does 8% extra damage to them.
+      > Bala — Flurry: Augment: Bala's CD is increased by 8s, but now shoots 4 balas (each with their y-position slightly offset by a random amount).
+      > Bala — Evolución: Augment: 25% chance your next Bala turns into a Cero.
+  - Cero: Active skill: unleash a devastating beam of reiryoku.
+      > Cero — Power: Augment: Ceroes now do 10% increased damage, but the CD is increased by 3s.
+      > Cero — Reactive: Augment: When you get damaged, automatically shoot a Cero in the your facing direction. 15s CD.
+      > Cero — Refreshing: Augment: After using an ability, automatically shoot out a Cero. This has a 8s CD. (Has to be a non-Cero and non-Bala skill).
+      > Cero — Adaptive: Augment: Cero's damage scales with the highest stat instead of just Reiatsu.
+
+  Passives:
+  - Predator: Passive: Landing F or G attacks applies 40% slow for 2s.
+  - Devour Mastery: Passive: Killing any enemy (mob or player) recovers 10% HP, and 5% reiryoku.
+  - Hierro Shell: Passive: Projectiles deal 5% less damage to you
+  - Resilient Hierro: Passive: Any debuffs to your defense from an enemy's skills/perks/gear/anything is 50% less effective.
+  - King of Hollows: Passive: When your HP drops below 20% in PVE against a hollow mob type, the mob stuns itself for 2 seconds. 20s CD.
+  - Hollow Monarch: Passive: If you're in combat and have a non-hollow player targeted, then if there are hollow mobs in your screen, they'll also get aggro'ed and target the player you're fighting. 10s CD
+  - Zommari's Eyes: Passive: Reduces Stun and Slow durations by 10%.
+
+  Masteries (choose ONE at Level 40):
+  - Hierro Espinazo [Lv40]: Mastery: Get 10% increased attack speed permanently. In addition, while you're below 30% HP, get a 10% attack/reiatsu stat boost, and lifesteal is increased by 10% that goes away when you're above 30% HP.
+  - Hierro Imbatible [Lv40]: Mastery: While CC'ed (slowed, stunned, etc.), you get 20% def stat boost. Once you're off CC, heal 4% HP.
+  - Hierro Absoluto [Lv40]: Mastery: Get a 8% def stat boost. Additionally, lose 10% movement speed permanently, but be immune to slows.
+  - Cero Emperador [Lv40]: Mastery: Your Ceroes (from any source) become 2-tile width, and cost 20% less reiryoku. In addition, every time you F attack, there's a 10% chance you also launch a Cero with it.
+
+─── QUINCY/WANDENREICH ───
+  Active Skills:
+  - Haizen: Active skill: conjure reishi blocks to strike your target.
+      > Haizen — Quickfire: Augment: Haizen shoots 1 block, instead of 4, but it has 2x projectile speed, and 2x range, and knocks back targets harder.
+      > Haizen — Hasted: Augment: Haizen's CD is reduced by 2s, but does 20% reduced damage.
+  - Gritz: Active skill: deploy a reishi net to immobilize foes.
+      > Gritz — Blitz: Augment: Gritz now flies out at 2x the normal speed, but it dies out twice as fast.
+      > Gritz — Efficiency: Augment: reduces Gritz cooldown by 1 second.
+      > Gritz — Gleitz: Augment: Gritz now slows targets by 60% for 3 seconds instead of stuns.
+  - Spread Shot: Active skill: launch multiple reishi arrows in a spread pattern. (should be useable by melee vollsts)
+      > Spread Shot — Reiryoku: Augment: Each of Spread Shot's arrows, upon landing, steals 2% of the target's Reiryoku and gives to you.
+  - Ransōtengai: Active skill: manipulate your body using invisible puppet strings.
+      > Ransōtengai — Last Stand: Augment: If HP is below 25%, Ransontengai also provides a 10% damage boost.
+      > Ransōtengai — Trained: Augment: Ransontengai's duration is increased by 4 seconds.
+      > Ransōtengai — Plated: Augment: Ransontengai no longer gives a movement speed buff, but instead provides a 12% defense stat boost.
+  - Sprenger Pentagon: Active skill: deploy the pentagon trap of reishi arrows.
+      > Sprenger Pentagon — Homing: Augment: Sprenger Pentagon now slowly moves towards the target's location (at 70% of a normal player speed).
+      > Sprenger Pentagon — Hasted: Augment: Sprenger Pentagon's starting cast animation is sped up by 35%, and Sprenger Pentagon's duration is increased by 3s.
+  - Blut Vene: Active skill: reinforce defensive reishi coating to reduce damage. All Reiatsu turns to Defence
+      > Blut Vene — Resilience: Damage reduced by 10% while blut vene is active
+      > Blut Vene — Duration: Blut Vene lasts 5 seconds longer.
+  - Blut Arterie [Lv40+]: Active skill: amplify offensive reishi flow for greater damage. All defence turns to Reiatsu
+      > Blut Arterie — Damage: Blut Arterie deals 10% more damage.
+      > Blut Arterie — Duration: Blut Arterie lasts 5 seconds longer.
+  - Seele Schneider [Lv20+]: Active skill: wield a reishi blade that drains energy from targets.
+      > Seele Schneider — Broadsword: Augment: Seele Schneider turns into a broadsword that deals 10% more damage and has 10% more critical hit chance and damage.
+      > Seele Schneider — Life Steal: Augment: Seele Schneider life steals 5% of damage dealt as health on top of the reiryoku leech.
+
+  Passives:
+  - Tenacious Reishi: Passive: All Crowd Control (CC) have 15% reduced duration on you (slows, stuns, silences, shocks, etc).
+  - Headtracking: Passive: A compas and arrow will appear above your head showing where your target is.
+      > Headhunting: Passive: Gain +2 movement speed when you have a target
+  - Sternritter Instincts: Passive: When you receive damage that is greater than 15% of your max HP, your Hirenkyaku CD is immediately reset. 4s CD
+      > Sternritter Reflexes: Passive: When you receive damage that is greater than 15% of your max HP, automatically Backstep (H). 4s CD
+  - Trained Hirenkyaku: Passive: Hirenkyaku and Flash Dash cooldown is reduced by 30% (regardless of Shunpo Mastery).
+  - Reishi Magnetism: Passive: If your arrow projectile (from any bow, or vollst) is flying and exceeds 6 tiles (192 pixels), its size is 25% bigger and does 5% more damage.
+
+  Masteries (choose ONE at Level 40):
+  - Razorform [Lv40]: Mastery: Crit chance is increased by 7.5% (can overcap). Your Quincy Attacks and abilities also ignore 10% of your target's defense.
+  - Windbreaker [Lv40]: Mastery: If ranged: All your Quincy Attacks get 25% increased projectile speed and last longer before despawning. If melee: your F/G attack range is increased by 12 pixels. In both, your Backstep (H)'s CD is reduced by 33%.
+  - Ghostslinger [Lv40]: Mastery: Lose the ability to ever do a critical hit, but each time you land a Quincy Attack or ability, you launch 2 ghost arrow projectiles: one at that target and the 2nd at a secondary target nearby, each dealing (your level * 10) damage. If your attack would have otherwise crit, then shoot 3 ghost arrows instead of 2. 3s CD.
+
+─── FULLBRINGER ───
+  Active Skills:
+  - Bringer Light: Active skill: When activated the following buffs are applied: +50% base stats, +2 (caps at +4) Movement Speed, -1.5s Shunpo CD, +4% Reiryoku Leech (2s CD), +15% Damage. Trainable up to 1000 mastery. At 500 mastery this skill increases in power.
+      > Bringer Light — Surge: Augment: When Bringer Light activates, knockback all enemies within 3 tiles and deal regular damage to them.
+      > Bringer Light — Efficiency: Augment: Bringer Light's drain is reduced by 15%.
+      > Bringer Light — Phase: Augment: While Bringer Light is active shunpo CD is halved.
+  - Bringer Spark: Active skill: Send forward streams of Bringer energy, stunning anyone it comes into contact with!
+      > Bringer Spark — Chain: Augment: Bringer Spark chains to up to 2 additional nearby targets within 4 tiles of the first target hit.
+      > Bringer Spark — Overload: Augment: Bringer Spark's stun duration is increased by 1s, but cooldown is increased by 2s.
+  - Brazo Derecha: Active skill: Manifest your right arm's power, increasing attack damage by 25% and adding 20% defence penetration to fist attacks for 8 seconds.
+      > Brazo Derecha — El Directo: Augment: While Brazo Derecha is active, your heavy attack (G) releases a powerful energy blast that travels forward.
+      > Brazo Derecha — Giant: Augment: Brazo Derecha increases your melee attack range by 32 pixels.
+  - Brazo Izquierda: Active skill: Manifest your left arm's defensive power, gaining a shield equal to 20% of your max HP for 6 seconds.
+      > Brazo Izquierda — Absorb: Augment: When the shield from Brazo Izquierda breaks or expires, release stored damage as an AoE blast (10% of damage absorbed).
+      > Brazo Izquierda — Reflect: Augment: While Brazo Izquierda shield is active, 5% of damage taken is reflected back to attackers.
+
+  Passives:
+  - Iron Skin: Passive: Reduce all physical damage taken by 8%.
+      > Iron Skin — Hardened: Augment: Iron Skin's damage reduction increases to 10%, and you take 10% reduced critical damage.
+      > Fullbring Resilience: Augment: All Crowd Control (CC) effects have 15% reduced duration on you.
+  - Titan Grip: Passive: Abilities deal 10% more damage to enemies if you are within 2 tiles of them.
+      > Titan Grip — Empowered: Augment: Your next ability will do +30% damage but will have +50% CD. 15s CD.
+      > Iron Fist: Augment: Unarmed/fist attacks deal 15% more damage.
+  - Shun Shun Rikka: Passive: Your healing abilities are 20% more effective.
+      > Sōten Kisshun — Extended: Augment: Soten Kisshun's duration is increased by 7 seconds
+      > Sōten Kisshun — Cleanse: Augment: Soten Kisshun removes all movement debuffs from allies when they enter the field.
+      > Santen Kesshun — Expand: Augment: Santen Kesshun's shield has 50% more health.
+      > Shared Vitality: Augment: When you heal an ally, you also heal yourself for 20% of the amount.
+  - Empowering Presence: Passive: When you apply a buff to an ally, they also gain +5 movement speed for 10s.
+      > Empowering Presence — Damage: Augment: When you buff an ally they get a 20% damage boost for 10s
+  - Object Affinity: Passive: Equipment you have equipped has 15% increased stats.
+      > Object Affinity — Bonded: Augment: Object Affinity bonus increases to +20%
+  - Time Tells No Lies: Passive: Your buff durations applied to others last 100% longer.
+      > Time Acceleration: Augment: Your cooldowns are reduced by 20%.
+  - Riruka's Training: Passive: Gain +20% EXP and +30% passive EXP.
+  - Dirty Boots: Passive: Flash Dash CD is decreased by 25% (Not Flash Step).
+      > Dirty Boots — Momentum: Augment: After using Flash Dash, your next instance of damage is increased by 30% if it was within 3 seconds. 15s CD
+  - Book of the End: Passive: Your debuffs, stuns, and slows on enemies last 30% longer.
+      > Book of the End — Insert: Augment: Enemies affected by your debuffs deal 10% less damage to you.
+  - Cross of Scaffold: Passive: When you land a critical hit, steal 3% of the target's current Reiryoku.
+  - Soul Devourer: Passive: Killing an enemy restores 5% of your max HP and 3% of your max Reiryoku.
+      > Soul Devourer — Hunger: Augment: Soul Devourer's restoration increases to 8% HP and 5% Reiryoku
+  - Doll Manifestation: Passive: Summons and pets you control deal 25% more damage. This includes all external Bounts
+  - Bringer Instincts: Passive: When you receive damage greater than 10% of your max HP, your Shunpo CD is immediately reset.
+      > Trained Bringer Step: Augment: You can use Shunpo (and Flash Dash) twice before it goes on CD, but CD is increased by 0.5s.
+      > Bringer Reflexes: Augment: When you receive damage greater than 10% of your max HP, automatically Backstep (H).
+
+  Masteries (choose ONE at Level 40):
+  - Xcution [Lv40]: Mastery: All skills deal 12% more damage. Bringer Light's drain is reduced by 25%.
+  - Defender [Lv40]: Mastery: Gain 15% damage reduction and 10% life steal when your HP drops below 50%.
+  - Support [Lv40]: Mastery: Your healing is 25% more effective.
+  - Predator [Lv40]: Mastery: Killing enemies grants stacks of Predator (up to 5). Each stack gives +5% damage and +2 movement speed. Stacks decay one at a time every 10 seconds out of combat.
+
+═══════════════════════════════════════
+MOB LEVELS
+═══════════════════════════════════════
+
+EARLY:
+  Lv2: Human School Delinquent — Tutorial quest mob — inside school
+  Lv5: Demi Hollow
+  Lv10: Bandit — Rukongai area
+  Lv13: Tree Hollow — Set: +70% HP Regen
+  Lv15: Monkey Hollow — Set: +30% Damage
+  Lv18: Bokusa Hollow — Set: +70% Reiryoku Regen
+  Lv21: Mantis Hollow
+  Lv24: Pounder Hollow
+  Lv27: Spider Hollow
+
+MID:
+  Lv30: Bat Hollow
+  Lv35: Fish Bone Hollow — Good at Lv58 (community tip)
+  Lv40: Senotakaidesu Hollow — Set: +50% Back Hit Damage
+  Lv45: Menos Grande Hollow
+  Lv50: Gigant Menos Grande Hollow
+  Lv55: Wolf Adjuchas Hollow
+
+LATE:
+  Lv60: Sado Fullbringer
+  Lv65: Vasto Lorde Hollow — Set: +30% Crit Hit Damage
+  Lv70: Webbed Quincy — Set: Ignores Defence 5s CD
+  Lv75: Shinigami Lieutenants
+  Lv80: Yylfordt Granz & Edrad Liones — Set: +30% Max Health
+  Lv85: Jackie Fullbringer (Sado Forest W) — Set: +1% dmg per 1% missing HP
+
+HELL:
+  Lv90: Szayelaporro Granz (Hell)
+  Lv95: Sinners/Kushanada (Hell Verse) — Set: Damage Stops Regen 5s
+  Lv100: Sinner (Hell)
+  Lv120: Kushanada (Hell)
+  Lv125–140: Hell Mobs — Highest tier content
+
+═══════════════════════════════════════
+PERK SYSTEM
+═══════════════════════════════════════
+PP: 1 per 2 levels. Reset cost: 30 Spirit Dust.
+Minor (9 slots, Lv10/20/40/50/70/80/90/100/110): R1=1PP R2=2PP R3=3PP
+Major (3 slots, Lv30/60/90): R1=2PP R2=4PP R3=6PP cumulative
+Ultimate (1 slot, Lv120): R1=5PP R2=10PP R3=15PP cumulative
+
+MINOR PERKS:
+  Subsequent Strikes [offense]: R1: every 6 hits → 25% bonus dmg | R2: every 5 hits → 25% | R3: every 4 hits → 50% (10s CD)
+    Melee finisher perk. The CD resets the hit counter, so build around gap-closing.
+  Critical Chance Mastery [offense]: R1: +2% | R2: +4% | R3: +6% crit chance
+    Core for DEX/crit builds. Stacks with DEX stat directly.
+  Critical Damage Mastery [offense]: R1: +3.3% | R2: +6.6% | R3: +9.9% crit damage
+    Makes every crit hit harder. Pair with Crit Chance for maximum burst.
+  Reiatsu Training [offense]: R1: +5% | R2: +10% | R3: +15% Reiatsu attack dmg
+    Best perk for Kido/Cero builds. Applies to ALL reiatsu-type skills.
+  Empower [offense]: R1: +4% | R2: +8% | R3: +12% to 1 core stat
+    Choose your highest stat — at 380 REI, +12% = ~45 free stat points worth.
+  Combat Training [offense]: R1: +5% | R2: +10% | R3: +15% dmg with Normal/Defence attacks
+    Pure melee damage perk. Best for Str/Def stat builds using F/G attacks.
+  Cleave [offense]: R1: 20% | R2: 40% | R3: 60% hard-attack dmg to adjacent enemies
+    Hard attack (G) hits multiple targets. Excellent for mob farming and PVP crowds.
+  Health Pool [defense]: R1: +5% | R2: +10% | R3: +15% max Health
+    Pure survivability. Great for tank builds or low-DEF setups.
+  Toughness [defense]: R1: +2% | R2: +4% | R3: +6% Defense
+    Flat defense boost. Good for patching low DEF investments.
+  Dodge Mastery [defense]: R1: +5% | R2: +7.5% | R3: +10% Dodge Chance
+    Stacks with DEX avoidability. Good for hit-and-run playstyles.
+  Regeneration Training [defense]: R1: +10% | R2: +20% | R3: +30% HP Regen
+    Passive health recovery. Combos well with defensive masteries.
+  Recovery [defense]: R1: 2% | R2: 4% | R3: 6% of damage taken returned over 5s
+    Heals based on damage received. Resets on each new hit — useful in sustained fights.
+  Energy Pool [utility]: R1: +5% | R2: +10% | R3: +15% max Reiryoku
+    More Kido casts before running dry. Good for Kido-heavy builds.
+  Inner Spirit [utility]: R1: +5% | R2: +10% | R3: +15% Reiryoku Regen
+    Recover Reiryoku faster between fights. Pairs with Energy Pool.
+  Free Shot [utility]: R1: 50% cost | R2: 20% cost | R3: 0 cost every 10s
+    Free Kido cast every 10s. Great for saving Reiryoku in extended fights.
+  Momentum [utility]: R1: +1 speed | R2: +2 speed | R3: +3 speed after 5s no combat
+    Speed bonus while roaming. Drops on damage dealt/received.
+  Surge [utility]: R1: 5% | R2: 10% | R3: 15% chance to 2x Reiryoku regen for 5s (10s CD)
+    Procs on ability use. Helps sustain Kido spam in long engagements.
+  Fracture ⭐ [pvp]: R1: -1.5%/stack | R2: -2.25%/stack | R3: -3%/stack DEF (max 10 stacks, 30s)
+    ⭐ Best PVP perk. Max = -30% enemy DEF at R3. Every hit applies a stack.
+  Bloodletting [pvp]: R1: 5s | R2: 10s | R3: 15s — target heals 50% less (20s CD)
+    Counters tank/regen builds hard. Essential for end-game PVP.
+  Leg Slice [pvp]: R1: 1s | R2: 1s | R3: 2s cripple on back hit (25s CD)
+    Mobility control. Pairs with flash step to back-hit consistently.
+  Flash Echo [pvp]: R1: 2 tiles | R2: 2 tiles | R3: 3 tiles — 20% auto-flash away (30s CD)
+    Reactive escape tool. Counters dash-in aggression automatically.
+  Seething Hatred [pvp]: R1: +2% | R2: +4% | R3: +6% dmg vs chosen faction
+    Pick your most common opponent's faction. Free flat damage against them.
+  Envenom [pvp]: R1: 5s stack | R2: 10s stack | R3: 15s — 0.25%/s target HP as poison (30s CD)
+    DoT perk scaling off target's max HP. Strong against high-HP tanks.
+  Fake Out [pvp]: R1: 1s clone | R2: 2s clone | R3: 3s — go invisible + decoy on dodge (10s CD)
+    Procs on successful dodge. Great for repositioning or resetting a fight.
+  Reaper [farming]: R1: +10% | R2: +20% | R3: +30% Spirit Dust drop rate
+    Farming perk. Speeds up Spirit Level progression significantly.
+  Brilliance [farming]: R1: +10% | R2: +20% | R3: +30% experience gained
+    Leveling perk. Excellent for early game or after rebirth.
+  Lucky Find [farming]: R1: 5% → 150% EXP | R2: 5% → 200% | R3: 10% chance 200% bonus EXP
+    Random EXP spikes from kills. Pairs with Brilliance for leveling builds.
+
+MAJOR PERKS:
+  Shock ⭐ [pvp]: R1: 5% chance | R2: 10% chance | R3: 15% chance to Silence 3s (25s CD)
+    ⭐ Top major perk. Silence prevents enemy skills mid-fight. Procs on every hit.
+  Chill [pvp]: R1: 10% | R2: 15% | R3: 20% chance to Slow 2s (25s CD)
+    Higher proc than Shock. Slows movement — great for kiting.
+  Ignite ⭐ [offense]: R1: 5% | R2: 10% | R3: 15% damage as burn over 5s (no stack)
+    ⭐ Procs on EVERY hit. Kido combos trigger it repeatedly for massive burn.
+  Evasion [defense]: R1: +15% | R2: +25% | R3: +35% dodge when below 26% HP
+    Clutch survival tool. At low HP you become very hard to hit.
+  Flash Pressure [pvp]: R1: 3 tiles | R2: 4 tiles | R3: 5 tile AoE on flash step — slow + ground 5s (45s CD)
+    Turn your flash step into crowd control. Excellent for aggressive melee.
+  Last Grasp [defense]: R1: 5 tiles | R2: 7 tiles | R3: 9 tile AoE when below 30% HP — slow + ground (45s CD)
+    Defensive panic button. Drops below 30% HP → enemy team gets grounded.
+  Vampiric Aura [defense]: R1: 2.5% | R2: 5% | R3: 7.5% damage converted to lifesteal
+    Passive sustain on every hit. Scales well with high DPS builds.
+  Flurry Strikes [offense]: R1: -15% | R2: -30% | R3: -45% F/G attack speed
+    Massive attack speed boost. Best major for melee builds.
+
+ULTIMATE PERKS:
+  Berserker's Rage ⭐ [offense]: R1: +0.16%/1% missing HP | R2: +0.33% | R3: +0.5% dmg per 1% missing HP
+    At 30% HP → +35% dmg. At 10% HP → +45% dmg. Best ultimate for offensive builds.
+  Stand Behind Me [defense]: R1: +0.16%/1% missing HP | R2: +0.33% | R3: +0.5% Defense per 1% missing HP
+    Mirror of Berserker's Rage but for DEF. Excellent for tank builds at low HP.
+
+SLOT TIMELINE:
+  Lv10 (minor): Reiatsu Training R3 or Crit Chance R3 — pick based on build
+  Lv20 (minor): Critical Chance or Critical Damage Mastery
+  Lv30 (major): Shock R3 — best major for most builds
+  Lv40 (minor): Critical Damage Mastery or Fracture (PVP)
+  Lv50 (minor): Fracture (PVP) R3 — stacks DEF reduction fast
+  Lv60 (major): Ignite R3 — burn on every hit
+  Lv70 (minor): Bloodletting R3 — counters regen/tank builds
+  Lv80 (minor): Leg Slice R2 or Flash Echo R2
+  Lv90 (major): Chill R3 — 20% slow chance, pairs with Shock for CC chain
+  Lv90 (minor): Flash Echo R2 or upgrade existing perks
+  Lv100 (minor): Empower R3 — +12% to your highest stat
+  Lv110 (minor): Free Shot R3 — free ability cost every 10s
+  Lv120 (ultimate): Berserker's Rage R3 (offense) or Stand Behind Me R3 (tank)
+
+═══════════════════════════════════════
+BUILD PRESETS (% of 16 pts/level)
+═══════════════════════════════════════
+Attack:    ATK50 DEF26 REI12 DEX12
+Reiatsu:   ATK12 DEF26 REI50 DEX12
+Tank:      ATK15 DEF55 REI15 DEX15
+Hybrid:    ATK28 DEF26 REI28 DEX18
+Crit:      ATK35 DEF26 REI10 DEX29
+Kido+Crit: ATK12 DEF26 REI36 DEX26
+Rule: ATK releases → ATK+DEF. REI releases → REI+DEF. Never neglect DEF.
+
+═══════════════════════════════════════
+NEW PLAYER TIPS
+═══════════════════════════════════════
+1. Tutorial Quest (Teacher→Pool→15 Delinquents→Chef→Urahara candy) — free EXP
+2. Class event active? Idle in classroom north of spawn for ~8 free levels
+3. Group farm — party EXP bonus far beats solo
+4. Train passives: hit dummies non-spiky side, or use a bumper buddy
+5. Hollow: stay Vasto Lorde before Arrancar for faster passive training
+6. Win 1 event ASAP — required for Shikai/Bankai/Ress/Vasto unlocks
+7. ATK release → ATK+DEF build. REI release → REI+DEF build.
+8. Rebirth resets Lv to 1, keeps perks. 30 SD to reset stats. Plan carefully.
+9. Kill Quest NPC near your grind spot — bonus EXP every session
+10. Press M to check Zanpakuto Understanding (needed for Shikai/Bankai)
+
+═══════════════════════════════════════
+Soul Wars Community Wiki | v3.0 | April 2026
+https://soulwars-site.vercel.app | discord.gg/9T5gPBe
+Not affiliated with Rhyuke or the Soul Wars dev team.
+═══════════════════════════════════════
